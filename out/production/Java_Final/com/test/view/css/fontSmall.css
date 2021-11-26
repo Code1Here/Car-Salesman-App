@@ -1,0 +1,8 @@
+*{ /* the asterisk is the "universal" operator */
+    -fx-font-size:7pt;
+}
+
+.large{
+    -fx-font-size: 9pt;
+    -fx-text-fill: #35568c;
+}

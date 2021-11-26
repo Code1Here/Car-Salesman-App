@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.test.controller.InvoiceController">
+   <children>
+      <ChoiceBox fx:id="creditDebit" layoutX="43.0" layoutY="189.0" onMouseClicked="#payment" prefHeight="25.0" prefWidth="75.0" />
+   </children>
+</AnchorPane>
