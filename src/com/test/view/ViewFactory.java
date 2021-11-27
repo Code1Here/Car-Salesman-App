@@ -2,7 +2,7 @@ package com.test.view;
 
 import com.test.controller.BaseController;
 import com.test.controller.ClientDetailsController;
-import com.test.controller.InvoiceController;
+import com.test.controller.ContractController;
 import com.test.controller.LoginController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -47,12 +47,12 @@ public class ViewFactory {
     }
 
     public void showClientDetailsWindow() {
-        BaseController controller = new InvoiceController(this, "ClientDetails.fxml");
+        BaseController controller = new ClientDetailsController(this, "ClientDetails.fxml");
         initializeStage(controller);
     }
 
-    public void showInvoiceWindow() {
-        BaseController controller = new ClientDetailsController(this, "Invoice.fxml");
+    public void showContractWindow() {
+        BaseController controller = new ContractController(this, "Contract.fxml");
         initializeStage(controller);
     }
 

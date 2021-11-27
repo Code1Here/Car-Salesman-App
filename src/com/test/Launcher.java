@@ -20,6 +20,7 @@ public class Launcher extends Application {
 //        Scene scene = new Scene(parent);
 //        stage.setScene(scene);;
 //        stage.show();
+
         ViewFactory viewFactory = new ViewFactory();
         viewFactory.showLoginWindow();
     }

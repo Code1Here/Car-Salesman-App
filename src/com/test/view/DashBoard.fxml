@@ -21,9 +21,9 @@
       </AnchorPane>
       <AnchorPane layoutX="162.0" layoutY="116.0" prefHeight="256.0" prefWidth="404.0">
          <children>
-            <TextField fx:id="firstLead" layoutX="32.0" layoutY="26.0" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
-            <TextField layoutX="32.0" layoutY="60.0" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
-            <TextField layoutX="32.0" layoutY="102.0" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
+            <TextField fx:id="firstLead" layoutX="32.0" layoutY="26.0" onMouseClicked="#lead1" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
+            <TextField layoutX="32.0" layoutY="60.0" onMouseClicked="#lead2" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
+            <TextField layoutX="32.0" layoutY="102.0" onMouseClicked="#lead3" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
          </children>
       </AnchorPane>
       <TextArea layoutX="210.0" layoutY="12.0" prefHeight="96.0" prefWidth="173.0" />

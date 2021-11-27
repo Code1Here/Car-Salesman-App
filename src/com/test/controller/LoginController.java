@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import javax.swing.JOptionPane;
 
 import java.net.URL;
@@ -28,8 +30,7 @@ public class LoginController extends BaseController implements Initializable {
     public LoginController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
-    PreparedStatement preparedStatement;
-    ResultSet resultset;
+
     @FXML
     void loginButtonAction(ActionEvent event) {
 
@@ -37,15 +38,18 @@ public class LoginController extends BaseController implements Initializable {
             try {
                 Connection connection = CarSalesmanDB.getDBConnection();
 
-                preparedStatement = connection.prepareStatement("select * from login where username=? and password=?");
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from login where username=? and password=?");
 
                 preparedStatement.setString(1, emailAddressField.getText());
                 preparedStatement.setString(2, passwordField.getText());
 
-                resultset = preparedStatement.executeQuery();
+                ResultSet resultset = preparedStatement.executeQuery();
 
-                if(resultset.next())
-                    JOptionPane.showMessageDialog(null, "Login Success");
+                if(resultset.next()) {
+                    viewFactory.showContractWindow();
+                    Stage stage = (Stage) errorLabel.getScene().getWindow();
+                    viewFactory.closeStage(stage);
+                }
                 else{
                     JOptionPane.showMessageDialog(null, "Login Failed");
                     emailAddressField.setText("");

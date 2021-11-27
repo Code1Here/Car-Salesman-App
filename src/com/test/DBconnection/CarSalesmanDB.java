@@ -24,6 +24,8 @@ public class CarSalesmanDB {
         } catch (SQLException exception) {
             System.out.println("Could not get connection to mysql");
         }
+
+        System.out.println("Connection might be null");
         return connection;
     }
 }

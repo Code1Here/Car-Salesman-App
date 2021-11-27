@@ -39,7 +39,7 @@ public class ClientDetailsController extends BaseController implements Initializ
     private TextField sex;
 
     @FXML
-    private TextField sss;
+    private TextField ssn;
 
     @FXML
     private TextField state;

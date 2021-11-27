@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InvoiceController extends BaseController implements Initializable {
+public class ContractController extends BaseController implements Initializable {
     @FXML
     private CheckBox CashCheckBox;
 
@@ -67,7 +67,7 @@ public class InvoiceController extends BaseController implements Initializable {
     @FXML
     private TextField mailingAddressV;
 
-    public InvoiceController(ViewFactory viewFactory, String fxmlName) {
+    public ContractController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
 
