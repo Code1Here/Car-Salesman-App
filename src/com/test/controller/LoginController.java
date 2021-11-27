@@ -8,14 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class LoginController extends BaseController implements Initializable {
-    CarSalesmanDB con = new CarSalesmanDB();
+
     @FXML
     private TextField emailAddressField;
 
@@ -28,18 +28,51 @@ public class LoginController extends BaseController implements Initializable {
     public LoginController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
-
+    PreparedStatement preparedStatement;
+    ResultSet resultset;
     @FXML
     void loginButtonAction(ActionEvent event) {
-        try {
-            con.getConnection();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+
+        if (fieldsAreValid()) {
+            try {
+                Connection connection = CarSalesmanDB.getDBConnection();
+
+                preparedStatement = connection.prepareStatement("select * from login where username=? and password=?");
+
+                preparedStatement.setString(1, emailAddressField.getText());
+                preparedStatement.setString(2, passwordField.getText());
+
+                resultset = preparedStatement.executeQuery();
+
+                if(resultset.next())
+                    JOptionPane.showMessageDialog(null, "Login Success");
+                else{
+                    JOptionPane.showMessageDialog(null, "Login Failed");
+                    emailAddressField.setText("");
+                    passwordField.setText("");
+                    emailAddressField.requestFocus();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    private boolean fieldsAreValid() {
+        // We will check the contents of our fields
+        if (emailAddressField.getText().isEmpty()) {
+            errorLabel.setText("Please fill email");
+            return false;
+        }
+        if (passwordField.getText().isEmpty()) {
+            errorLabel.setText("Please fill password");
+            return false;
+        }
+        return true;
     }
 }

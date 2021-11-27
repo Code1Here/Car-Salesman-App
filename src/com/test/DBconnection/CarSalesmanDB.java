@@ -1,16 +1,29 @@
 package com.test.DBconnection;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CarSalesmanDB {
+    private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DB_CONNECTION = "jdbc:mysql://localhost/carsalesman";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "DFndi*@&8f*djHIF8&*";
+    // Connect to the localdatabase
 
-    public void getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver"); // Connects to the driver
-        Connection con;
-        con = DriverManager.getConnection("jdbc:mysql://localhost/carsalesman","root", "DFndi*@&8f*djHIF8&*");
-        System.out.println("Connection complete!");
+    public static Connection getDBConnection() throws SQLException {
+        Connection connection = null;
 
+        try {
+            Class.forName(DB_DRIVER);
+        } catch (ClassNotFoundException exception) {
+            System.out.println("Driver Issues");
+        }
+
+        try {
+            connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+            return connection;
+        } catch (SQLException exception) {
+            System.out.println("Could not get connection to mysql");
+        }
+        return connection;
     }
 }
