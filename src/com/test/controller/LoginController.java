@@ -1,6 +1,6 @@
 package com.test.controller;
 
-import com.test.DBconnection.CarSalesmanDB;
+import com.test.model.CarSalesmanDB;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,7 +46,7 @@ public class LoginController extends BaseController implements Initializable {
                 ResultSet resultset = preparedStatement.executeQuery();
 
                 if(resultset.next()) {
-                    viewFactory.showContractWindow();
+                    viewFactory.showDashBoardWindow();
                     Stage stage = (Stage) errorLabel.getScene().getWindow();
                     viewFactory.closeStage(stage);
                 }

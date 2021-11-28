@@ -1,6 +1,7 @@
 package com.test.controller;
 
 import com.test.view.ViewFactory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -66,6 +67,11 @@ public class ContractController extends BaseController implements Initializable 
 
     @FXML
     private TextField mailingAddressV;
+
+    @FXML
+    void finalize(ActionEvent event) {
+
+    }
 
     public ContractController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);

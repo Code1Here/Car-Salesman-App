@@ -16,7 +16,7 @@
       <TextField fx:id="city" layoutX="57.0" layoutY="181.0" prefHeight="25.0" prefWidth="141.0" promptText="Enter city" />
       <TextField fx:id="state" layoutX="251.0" layoutY="181.0" prefHeight="25.0" prefWidth="127.0" promptText="Enter state" />
       <TextField fx:id="zip" layoutX="411.0" layoutY="181.0" prefHeight="25.0" prefWidth="74.0" promptText="Enter zip" />
-      <TextField fx:id="sss" layoutX="155.0" layoutY="231.0" prefHeight="25.0" prefWidth="113.0" promptText="xxx-xx-xxxx" />
+      <TextField fx:id="ssn" layoutX="155.0" layoutY="231.0" prefHeight="25.0" prefWidth="113.0" promptText="xxx-xx-xxxx" />
       <TextField fx:id="grossly" layoutX="155.0" layoutY="265.0" prefHeight="25.0" prefWidth="113.0" promptText="\$:" />
       <TextField fx:id="dob" layoutX="155.0" layoutY="297.0" prefHeight="25.0" prefWidth="113.0" promptText="YYYY-MM-DD" />
       <Button layoutX="331.0" layoutY="297.0" mnemonicParsing="false" onAction="#finished" text="Submit" />

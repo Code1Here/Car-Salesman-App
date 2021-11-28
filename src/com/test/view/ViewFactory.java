@@ -1,9 +1,6 @@
 package com.test.view;
 
-import com.test.controller.BaseController;
-import com.test.controller.ClientDetailsController;
-import com.test.controller.ContractController;
-import com.test.controller.LoginController;
+import com.test.controller.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,28 +18,13 @@ public class ViewFactory {
         activeStages = new ArrayList<>();
     }
 
-    // View Client Details handling:
-    private ColorTheme colorTheme = ColorTheme.DEFAULT;
-    private FontSize fontSize = FontSize.MEDIUM;
-
-    public ColorTheme getColorTheme() {
-        return colorTheme;
-    }
-
-    public void setColorTheme(ColorTheme colorTheme) {
-        this.colorTheme = colorTheme;
-    }
-
-    public FontSize getFontSize() {
-        return fontSize;
-    }
-
-    public void setFontSize(FontSize fontSize) {
-        this.fontSize = fontSize;
-    }
-
     public void showLoginWindow() { // all of these constructors had emailManager objects in constructor
         BaseController controller = new LoginController(this, "login.fxml");
+        initializeStage(controller);
+    }
+
+    public void showDashBoardWindow() {
+        BaseController controller = new DashBoardController(this, "DashBoard.fxml");
         initializeStage(controller);
     }
 
@@ -50,7 +32,14 @@ public class ViewFactory {
         BaseController controller = new ClientDetailsController(this, "ClientDetails.fxml");
         initializeStage(controller);
     }
-
+    public void showCalculatorWindow() {
+        BaseController controller = new LoanController(this, "Loan.fxml");
+        initializeStage(controller);
+    }
+    public void showOptionsWindow() {
+        BaseController controller = new OptionsWindowController(this, "OptionsWindow.fxml");
+        initializeStage(controller);
+    }
     public void showContractWindow() {
         BaseController controller = new ContractController(this, "Contract.fxml");
         initializeStage(controller);
@@ -82,6 +71,22 @@ public class ViewFactory {
         activeStages.remove(stageToClose); // This way we always have a list of active stages. Now we can iterate through it in the view factory
     }
 
+    // View Client Details handling:
+    private ColorTheme colorTheme = ColorTheme.DEFAULT;
+    private FontSize fontSize = FontSize.MEDIUM;
+
+    public ColorTheme getColorTheme() {
+        return colorTheme;
+    }
+    public void setColorTheme(ColorTheme colorTheme) {
+        this.colorTheme = colorTheme;
+    }
+    public FontSize getFontSize() {
+        return fontSize;
+    }
+    public void setFontSize(FontSize fontSize) {
+        this.fontSize = fontSize;
+    }
     public void updateStyles() { // In javaFX CSS styles are applied to the scenes which need a list of scenes ( meaning all the active scenes running in the program. This is easy to do because we have the initialize-stage and closeStage methods
         for (Stage stage: activeStages){
             Scene scene = stage.getScene();
@@ -91,7 +96,6 @@ public class ViewFactory {
             scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
         }
     }
-
 }
 /*
 This view factory will pass the view events to the sales manager, which will do all the work of the request

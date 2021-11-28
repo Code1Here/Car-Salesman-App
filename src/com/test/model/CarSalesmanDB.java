@@ -1,4 +1,4 @@
-package com.test.DBconnection;
+package com.test.model;
 
 import java.sql.*;
 
