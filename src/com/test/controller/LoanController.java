@@ -41,7 +41,8 @@ public class LoanController extends BaseController implements Initializable {
 
     @FXML
     void openContract(ActionEvent event) {
-
+        viewFactory.showContractWindow();
+        //Store all the data into the database
     }
     @FXML
     void clearAction(ActionEvent event) {
@@ -51,6 +52,7 @@ public class LoanController extends BaseController implements Initializable {
         monthlyPayment.setText("");
         totalPayment.setText("");
         preApprovedLoan.setText("");
+        errorLabel.setText("");
     }
 
     @FXML

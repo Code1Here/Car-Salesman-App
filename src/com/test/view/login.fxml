@@ -13,8 +13,11 @@
       <Button layoutX="217.0" layoutY="218.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="26.0" prefWidth="123.0" text="Login" />
       <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="76.0" prefHeight="26.0" prefWidth="82.0" text="Username:" textFill="WHITE" />
       <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="149.0" prefHeight="26.0" prefWidth="82.0" text="Password:" textFill="WHITE" />
-      <TextField fx:id="emailAddressField" layoutX="176.0" layoutY="76.0" prefHeight="25.0" prefWidth="206.0" promptText="Enter your user name" />
-      <Label fx:id="errorLabel" layoutX="52.0" layoutY="270.0" prefHeight="17.0" prefWidth="182.0" />
+      <TextField fx:id="emailAddressField" layoutX="176.0" layoutY="76.0" onKeyPressed="#clearError" prefHeight="25.0" prefWidth="206.0" promptText="Enter your user name" />
+      <Label fx:id="errorLabel" layoutX="52.0" layoutY="270.0" prefHeight="17.0" prefWidth="182.0" textFill="WHITE" AnchorPane.rightAnchor="212.0">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
       <PasswordField fx:id="passwordField" layoutX="176.0" layoutY="149.0" prefHeight="25.0" prefWidth="206.0" promptText="Enter your password" />
       <VBox layoutX="2.0" layoutY="1.0" prefHeight="302.0" prefWidth="53.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="181.0" layoutY="14.0" prefHeight="33.0" prefWidth="196.0" text="Tesla Dealership &amp; Service Inc." textFill="WHITE">

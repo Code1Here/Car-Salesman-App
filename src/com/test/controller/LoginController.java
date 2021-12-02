@@ -1,6 +1,6 @@
 package com.test.controller;
 
-import com.test.model.CarSalesmanDB;
+import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import javax.swing.JOptionPane;
@@ -32,28 +33,16 @@ public class LoginController extends BaseController implements Initializable {
     }
 
     @FXML
-    void loginButtonAction(ActionEvent event) {
+    void loginButtonAction(ActionEvent event)  {
 
         if (fieldsAreValid()) {
             try {
-                Connection connection = CarSalesmanDB.dbConnection();
-
-                PreparedStatement preparedStatement = connection.prepareStatement("select * from login where username=? and password=?");
-
-                preparedStatement.setString(1, emailAddressField.getText());
-                preparedStatement.setString(2, passwordField.getText());
-
-                ResultSet resultset = preparedStatement.executeQuery();
-
-                if(resultset.next()) {
+                if (SalesProcessDAO.loginSuccess(emailAddressField.getText(), passwordField.getText())) {
+                    // Login success
                     viewFactory.showDashBoardWindow();
                     Stage stage = (Stage) errorLabel.getScene().getWindow();
                     viewFactory.closeStage(stage);
-                    connection.close();
-                    preparedStatement.close();
-                    resultset.close();
-                }
-                else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Login Failed");
                     emailAddressField.setText("");
                     passwordField.setText("");
@@ -64,10 +53,13 @@ public class LoginController extends BaseController implements Initializable {
             }
         }
     }
-
+    @FXML
+    void clearError(KeyEvent event) {
+        errorLabel.setText("");
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        errorLabel.setText("Goal is met. More goals are next."); // Employee custom tag
     }
 
     private boolean fieldsAreValid() {
