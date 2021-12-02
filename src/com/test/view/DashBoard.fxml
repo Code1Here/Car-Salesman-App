@@ -13,39 +13,39 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="58.0" prefHeight="331.0" prefWidth="141.0">
+      <AnchorPane layoutX="14.0" layoutY="10.0" prefHeight="379.0" prefWidth="141.0">
          <children>
-            <Button layoutX="28.0" layoutY="35.0" mnemonicParsing="false" onAction="#fillOutForm" opacity="0.4" prefHeight="83.0" prefWidth="85.0" text="Fill out Form" />
+            <Button layoutX="28.0" layoutY="74.0" mnemonicParsing="false" onAction="#fillOutForm" opacity="0.4" prefHeight="83.0" prefWidth="85.0" text="Fill out Form" />
             <Button layoutX="19.0" layoutY="205.0" mnemonicParsing="false" onAction="#LoanCalculator" opacity="0.4" prefHeight="96.0" prefWidth="104.0" text="Loan Calculator" />
+            <MenuBar layoutX="18.0" layoutY="22.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#closeAction" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#optionsAction" text="Options" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="162.0" layoutY="116.0" prefHeight="256.0" prefWidth="404.0">
          <children>
-            <TextField fx:id="firstLead" layoutX="32.0" layoutY="26.0" onMouseClicked="#lead1" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
-            <TextField layoutX="32.0" layoutY="60.0" onMouseClicked="#lead2" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
-            <TextField layoutX="32.0" layoutY="102.0" onMouseClicked="#lead3" opacity="0.2" prefHeight="25.0" prefWidth="357.0" />
+            <TextField fx:id="firstLead" layoutX="32.0" layoutY="26.0" onMouseClicked="#lead1" prefHeight="25.0" prefWidth="357.0" />
+            <TextField layoutX="32.0" layoutY="60.0" onMouseClicked="#lead2" prefHeight="25.0" prefWidth="357.0" />
+            <TextField layoutX="32.0" layoutY="102.0" onMouseClicked="#lead3" prefHeight="25.0" prefWidth="357.0" />
          </children>
       </AnchorPane>
       <TextArea layoutX="210.0" layoutY="12.0" prefHeight="96.0" prefWidth="173.0" />
       <TextArea layoutX="393.0" layoutY="12.0" prefHeight="96.0" prefWidth="173.0" />
-      <MenuBar layoutX="19.0" layoutY="12.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
    </children>
 </Pane>

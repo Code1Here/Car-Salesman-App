@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="356.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="377.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="fullName" layoutX="80.0" layoutY="16.0" prefHeight="25.0" prefWidth="263.0" promptText="Please enter First and Last name" />
       <TextField fx:id="sex" layoutX="382.0" layoutY="16.0" prefHeight="25.0" prefWidth="103.0" promptText="Sexual Identity" />

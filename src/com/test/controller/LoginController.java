@@ -36,7 +36,7 @@ public class LoginController extends BaseController implements Initializable {
 
         if (fieldsAreValid()) {
             try {
-                Connection connection = CarSalesmanDB.getDBConnection();
+                Connection connection = CarSalesmanDB.dbConnection();
 
                 PreparedStatement preparedStatement = connection.prepareStatement("select * from login where username=? and password=?");
 
@@ -49,6 +49,9 @@ public class LoginController extends BaseController implements Initializable {
                     viewFactory.showDashBoardWindow();
                     Stage stage = (Stage) errorLabel.getScene().getWindow();
                     viewFactory.closeStage(stage);
+                    connection.close();
+                    preparedStatement.close();
+                    resultset.close();
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Login Failed");

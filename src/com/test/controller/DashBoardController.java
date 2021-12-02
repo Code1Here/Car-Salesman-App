@@ -23,6 +23,7 @@ public class DashBoardController extends BaseController implements Initializable
     void LoanCalculator(ActionEvent event) {
         viewFactory.showCalculatorWindow();
     }
+
     @FXML
     void closeAction(ActionEvent event) {
         Stage stage = (Stage) firstLead.getScene().getWindow();
@@ -31,12 +32,12 @@ public class DashBoardController extends BaseController implements Initializable
 
     @FXML
     void optionsAction(ActionEvent event) {
-
+        viewFactory.showOptionsWindow();
     }
 
     @FXML
     void fillOutForm(ActionEvent event) {
-
+        viewFactory.showClientDetailsWindow();
     }
 
     @FXML

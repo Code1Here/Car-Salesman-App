@@ -1,6 +1,5 @@
 package com.test.controller;
 
-//import com.test.EmailManager;
 import com.test.view.ColorTheme;
 import com.test.view.FontSize;
 import com.test.view.ViewFactory;
@@ -17,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class OptionsWindowController extends BaseController implements Initializable {
 
-    public OptionsWindowController(/*EmailManager emailManager,*/ ViewFactory viewFactory, String fxmlName) {
+    public OptionsWindowController(ViewFactory viewFactory, String fxmlName) {
         super( viewFactory, fxmlName);
     }
 

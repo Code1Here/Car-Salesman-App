@@ -3,10 +3,8 @@ package com.test.controller;
 import com.test.model.LoanModel;
 import com.test.view.ViewFactory;
 import javafx.fxml.Initializable;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,9 +15,14 @@ public class LoanController extends BaseController implements Initializable {
     public LoanController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
-
     @FXML
     private Label errorLabel;
+
+    @FXML
+    private TextField downPayment;
+
+    @FXML
+    private Label preApprovedLoan;
 
     @FXML
     private TextField annualInterestRate;
@@ -37,17 +40,22 @@ public class LoanController extends BaseController implements Initializable {
     private TextField totalPayment;
 
     @FXML
+    void openContract(ActionEvent event) {
+
+    }
+    @FXML
     void clearAction(ActionEvent event) {
         annualInterestRate.setText("");
         numberOfYears.setText("");
         loanAmount.setText("");
         monthlyPayment.setText("");
         totalPayment.setText("");
+        preApprovedLoan.setText("");
     }
 
     @FXML
     void closeAction(ActionEvent event) {
-        Stage stage = (Stage) errorLabel.getScene().getWindow();
+        Stage stage = (Stage) preApprovedLoan.getScene().getWindow();
         viewFactory.closeStage(stage);
     }
 
@@ -68,9 +76,9 @@ public class LoanController extends BaseController implements Initializable {
             // Display monthly payment and total payment
             monthlyPayment.setText(String.format("$%.2f", loanModel.getMonthlyPayment()));
             totalPayment.setText(String.format("$%.2f", loanModel.getTotalPayment()));
-        } else {
-            Thread.sleep(2000);
-            errorLabel.setText("");
+//        } else {
+//            if(Thread.sleep(2000))
+//            errorLabel.setText("");
         }
     }
 
@@ -82,7 +90,7 @@ public class LoanController extends BaseController implements Initializable {
     private boolean fieldsAreValid() {
         // We will check the contents of our fields
         if (annualInterestRate.getText().isEmpty()
-                || numberOfYears.getText().isEmpty() || loanAmount.getText().isEmpty()) {
+                || numberOfYears.getText().isEmpty() || downPayment.getText().isEmpty()) {
             errorLabel.setText("Please fill the required fields");
             return false;
         }

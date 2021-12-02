@@ -6,6 +6,7 @@ module Java.Final {
     requires java.sql;
     requires mysql.connector.java;
     requires java.desktop;
+    requires java.sql.rowset;
 
     opens com.test;
     opens com.test.controller; // These classes control the fxml. view doesn't need to be here
