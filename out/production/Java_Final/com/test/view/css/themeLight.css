@@ -9,12 +9,13 @@
 Button, Label, ChoiceBox, Slider, TextField{
     -fx-text-fill: black;
 }
-Button, ChoiceBox >*, Slider .track, TextField, TextArea {
+Button, ChoiceBox >*, Slider .track, TextField, VBox {  /*TextField, VBox*/
     -fx-background-color: #f1f7a2;
 }
 Button:hover {
     -fx-background-color: white;
 }
+
 /*ChoiceBox >* {*/
 /*    -fx-background-color: #f1f7a2;*/
 /*}*/

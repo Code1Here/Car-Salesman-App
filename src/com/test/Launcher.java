@@ -23,7 +23,7 @@ public class Launcher extends Application {
 //        stage.show();
 
         ViewFactory viewFactory = new ViewFactory();
-        viewFactory.showLoginWindow();
+        viewFactory.showDashBoardWindow();
 
     }
 }

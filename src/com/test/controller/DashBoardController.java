@@ -41,19 +41,22 @@ public class DashBoardController extends BaseController implements Initializable
     }
 
     @FXML
-    void lead1(MouseEvent event) {
-
+    void lead(MouseEvent event) {
+//        firstLead.setText(leadManager.get(1));
     }
-
-    @FXML
-    void lead2(MouseEvent event) {
-
-    }
-
-    @FXML
-    void lead3(MouseEvent event) {
-
-    }
+//    @FXML
+//    void lead(MouseEvent event) {
+/**       firstLead.setText(leadManager.get(1)); */
+//    }
+//    @FXML
+//    void lead2(MouseEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void lead3(MouseEvent event) {
+//
+//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

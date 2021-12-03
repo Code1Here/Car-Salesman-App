@@ -1,6 +1,7 @@
 package com.test.controller;
 
 import com.test.model.CarSalesmanDB;
+import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class ClientDetailsController extends BaseController implements Initializable {
     public ClientDetailsController(ViewFactory viewFactory, String fxmlName) {
@@ -57,36 +59,25 @@ public class ClientDetailsController extends BaseController implements Initializ
 
     @FXML
     void finished(ActionEvent event) {
-        //if (fieldsAreValid()) {
+        String newCustomer = "INSERT INTO customer_info(ssn, full_name, sex, phone_number, email, address1, address2, " +
+                "city, state, zip, grossly, dob) VALUES('"+ssn.getText().trim()+"', '"+fullName.getText().trim()+"', '"+
+                sex.getText().trim()+"', '"+number.getText().trim()+"', '"+email.getText().trim()+"', '"+addr1.getText().trim()+
+                "', '"+addr2.getText().trim()+"', '"+city.getText().trim()+"', '"+state.getText().trim()+"', '"+zip.getText().trim()+
+                "', '"+grossly.getText().trim()+"', '"+dob.getText().trim()+"');";
+//        String[] newCustomer = {ssn.getText().trim(), fullName.getText().trim(), sex.getText().trim(),
+//                number.getText().trim(), email.getText().trim(), addr1.getText().trim(), addr2.getText().trim(),
+//                city.getText().trim()};
+//        for (String hi: newCustomer)
+//        System.out.println(hi + "\n\n");
+
         try {
-//PreparedStatement preparedStatement = connection.prepareStatement(
-            String query = "INSERT INTO customer_info(ssn, full_name, sex, phone_number, email, address1, address2, " +
-                    "city, state, zip, grossly, dob) VALUES('"+ssn.getText().trim()+"', '"+fullName.getText().trim()+"', '"+
-                    sex.getText().trim()+"', '"+number.getText().trim()+"', '"+email.getText().trim()+"', '"+addr1.getText().trim()+
-                    "', '"+addr2.getText().trim()+"', '"+city.getText().trim()+"', '"+state.getText().trim()+"', '"+zip.getText().trim()+
-                    "', '"+grossly.getText().trim()+"', '"+dob.getText().trim()+"');";
-
-            System.out.println(query);
-
-            Connection connection = CarSalesmanDB.dbConnection();
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(query);
-            stmt.close();
-            connection.close();
-//            while (resultset.next()) {
-//                viewFactory.showDashBoardWindow();
-//                Stage stage = (Stage) errorLabel.getScene().getWindow();
-//                viewFactory.closeStage(stage);
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Login Failed");
-//                emailAddressField.setText("");
-//                passwordField.setText("");
-//                fullName.requestFocus();
-//            }
+            SalesProcessDAO.submitForm(ssn.getText().trim(), newCustomer);
+            leadManager.add(fullName.getText().trim()+"%15"+grossly.getText().trim()+"%15"+number.getText().trim());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //}
+        String client = "";
+//        lead1(client);
     }
 
     @Override

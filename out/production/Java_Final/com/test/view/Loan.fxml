@@ -12,8 +12,8 @@
 
 <AnchorPane prefHeight="333.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="283.0" layoutY="254.0" mnemonicParsing="false" onAction="#calculate" text="Re-Calculate" AnchorPane.bottomAnchor="54.0" />
-      <Label fx:id="preApprovedLoan" layoutX="14.0" layoutY="293.0" prefHeight="25.0" prefWidth="165.0" />
+      <Button layoutX="282.0" layoutY="254.0" mnemonicParsing="false" onAction="#calculate" text="Re-Calculate" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="35.33333333333333" AnchorPane.topAnchor="253.99999999999997" />
+      <Label fx:id="preApprovedLoan" layoutX="14.0" layoutY="293.0" prefHeight="25.0" prefWidth="165.0" AnchorPane.bottomAnchor="14.999999999999982" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="220.66666666666666" AnchorPane.topAnchor="293.0" />
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="132.0" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -33,7 +33,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <VBox layoutX="75.0" layoutY="30.0" prefHeight="198.0" prefWidth="113.0">
+      <VBox layoutX="75.0" layoutY="30.0" prefHeight="198.0" prefWidth="113.0" AnchorPane.bottomAnchor="105.33333333333331" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="211.66666666666669" AnchorPane.topAnchor="30.0">
          <children>
             <Label prefHeight="39.0" prefWidth="110.0" text="Annual Interest Rate:">
                <padding>
@@ -67,7 +67,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox layoutX="200.0" layoutY="39.0" prefHeight="198.0" prefWidth="165.0">
+      <VBox layoutX="200.0" layoutY="39.0" prefHeight="198.0" prefWidth="165.0" AnchorPane.bottomAnchor="105.33333333333331" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="34.66666666666666" AnchorPane.topAnchor="30.0">
          <children>
             <TextField fx:id="annualInterestRate" alignment="CENTER" promptText="This field is required">
                <padding>
@@ -84,24 +84,24 @@
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="loanAmount" alignment="CENTER">
+            <TextField fx:id="loanAmount" alignment="CENTER" editable="false">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="monthlyPayment" alignment="CENTER_RIGHT">
+            <TextField fx:id="monthlyPayment" alignment="CENTER_RIGHT" editable="false">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="totalPayment" alignment="CENTER_RIGHT">
+            <TextField fx:id="totalPayment" alignment="CENTER_RIGHT" editable="false">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
          </children>
       </VBox>
-      <Button layoutX="159.0" layoutY="254.0" mnemonicParsing="false" onAction="#openContract" text="Approval" />
-      <Label fx:id="errorLabel" layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.topAnchor="5.0" />
+      <Button layoutX="159.0" layoutY="254.0" mnemonicParsing="false" onAction="#openContract" text="Approval" AnchorPane.bottomAnchor="53.999999999999986" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="254.0" />
+      <Label fx:id="errorLabel" layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.bottomAnchor="303.0" AnchorPane.leftAnchor="149.00000000000003" AnchorPane.rightAnchor="13.666666666666657" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

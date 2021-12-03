@@ -3,8 +3,11 @@ package com.test.controller;
 //import com.test.EmailManager;
 import com.test.view.ViewFactory;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public abstract class BaseController {
-  //  protected EmailManager emailManager;
+    protected ArrayList<String> leadManager;
     protected ViewFactory viewFactory;
     private String fxmlName; // Indication to the fxml file
 

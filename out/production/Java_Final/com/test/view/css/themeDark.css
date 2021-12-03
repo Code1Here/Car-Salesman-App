@@ -10,7 +10,7 @@
 Button, Label, ChoiceBox, Slider, TextField {
     -fx-text-fill: white;
 }
-Button, ChoiceBox >*, Slider .track, TextArea, TextField {
+Button, ChoiceBox >*, Slider .track, TextField, VBox {   /*TextField, VBox*/
     -fx-background-color: #353b4a;
 }
 Button:hover {
