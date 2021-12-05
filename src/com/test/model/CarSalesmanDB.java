@@ -1,6 +1,8 @@
 package com.test.model;
 
-import com.sun.rowset.CachedRowSetImpl;
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 
 public class CarSalesmanDB {
@@ -42,7 +44,8 @@ public class CarSalesmanDB {
     public static ResultSet dbExecuteQuery(String queryStmt) throws SQLException {
         Statement stmt = null;
         ResultSet resultSet = null;
-        CachedRowSetImpl crs = null;
+        RowSetFactory aFactory = RowSetProvider.newFactory();
+        CachedRowSet crs = aFactory.createCachedRowSet();
 
         try {
             dbConnection();
@@ -52,7 +55,6 @@ public class CarSalesmanDB {
             resultSet = stmt.executeQuery(queryStmt);
 
             //CachedRowSet Implementation
-            crs = new CachedRowSetImpl();
             crs.populate(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();

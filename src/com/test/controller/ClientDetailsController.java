@@ -69,10 +69,10 @@ public class ClientDetailsController extends BaseController implements Initializ
 //                city.getText().trim()};
 //        for (String hi: newCustomer)
 //        System.out.println(hi + "\n\n");
-
+//
         try {
             SalesProcessDAO.submitForm(ssn.getText().trim(), newCustomer);
-            leadManager.add(fullName.getText().trim()+"%15"+grossly.getText().trim()+"%15"+number.getText().trim());
+            //leadManager.add(fullName.getText().trim()+",%15"+grossly.getText().trim()+",%15"+number.getText().trim());
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -47,20 +47,20 @@
       </MenuBar>
       <VBox layoutX="192.0" layoutY="132.0" prefHeight="293.0" prefWidth="404.0" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="5.0">
          <children>
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
          </children>
       </VBox>
       <Label layoutX="191.0" layoutY="68.0" prefHeight="25.0" prefWidth="130.0" text="YOUR LEADS:" textFill="RED" />
-      <ComboBox layoutX="332.0" layoutY="1.0" prefHeight="44.0" prefWidth="262.0" promptText="INVENTORY" style="-fx-border-color: white;">
+      <ComboBox fx:id="productChoice" layoutX="332.0" layoutY="1.0" onAction="#inventory" prefHeight="44.0" prefWidth="262.0" promptText="INVENTORY" style="-fx-border-color: white;">
          <effect>
             <Glow />
          </effect>

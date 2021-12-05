@@ -1,5 +1,6 @@
 package com.test.controller;
 
+import com.test.model.CarSalesmanDB;
 import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import javax.swing.JOptionPane;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+
+import static com.test.model.CarSalesmanDB.dbDisconnect;
 
 public class LoginController extends BaseController implements Initializable {
 
@@ -42,6 +45,7 @@ public class LoginController extends BaseController implements Initializable {
                     viewFactory.showDashBoardWindow();
                     Stage stage = (Stage) errorLabel.getScene().getWindow();
                     viewFactory.closeStage(stage);
+                    CarSalesmanDB.dbDisconnect();
                 } else {
                     JOptionPane.showMessageDialog(null, "Login Failed");
                     emailAddressField.setText("");

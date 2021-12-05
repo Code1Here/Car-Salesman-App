@@ -4,6 +4,7 @@ import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -16,6 +17,13 @@ public class DashBoardController extends BaseController implements Initializable
         super(viewFactory, fxmlName);
     }
 
+    @FXML
+    private ComboBox<?> productChoice;
+
+    @FXML
+    void inventory(ActionEvent event) {
+
+    }
     @FXML
     private TextField firstLead;
 

@@ -1,15 +1,12 @@
 package com.test.controller;
 
-//import com.test.EmailManager;
 import com.test.view.ViewFactory;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public abstract class BaseController {
-    protected ArrayList<String> leadManager;
+    //protected LinkedList<String> leadManager;
     protected ViewFactory viewFactory;
-    private String fxmlName; // Indication to the fxml file
+    private final String fxmlName; // Indication to the fxml file
 
     public BaseController(/*EmailManager emailManager,*/ ViewFactory viewFactory, String fxmlName) {
        // this.emailManager = emailManager;
