@@ -84,7 +84,7 @@
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="loanAmount" alignment="CENTER" editable="false">
+            <TextField fx:id="loanAmount" alignment="CENTER" promptText="This field is required">
                <padding>
                   <Insets top="15.0" />
                </padding>

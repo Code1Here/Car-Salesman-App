@@ -9,7 +9,7 @@
 Button, Label, ChoiceBox, Slider, TextField{
     -fx-text-fill: black;
 }
-Button, ChoiceBox >*, Slider .track, TextField, VBox {  /*TextField, VBox*/
+Button, ChoiceBox >*, Slider .track {  /*TextField, VBox*/
     -fx-background-color: #f1f7a2;
 }
 Button:hover {

@@ -47,16 +47,16 @@
       </MenuBar>
       <VBox layoutX="192.0" layoutY="132.0" prefHeight="293.0" prefWidth="404.0" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="5.0">
          <children>
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
-            <TextField editable="false" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead1" editable="false" onAction="#lead1Click" onMouseClicked="#lead1Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead2" editable="false" onAction="#lead2Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead3" editable="false" onAction="#lead3Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead4" editable="false" onAction="#lead4Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead5" editable="false" onAction="#lead5Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead6" editable="false" onAction="#lead6Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead7" editable="false" onAction="#lead7Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead8" editable="false" onAction="#lead8Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead9" editable="false" onAction="#lead9Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
+            <TextField fx:id="lead10" editable="false" onAction="#lead10Click" prefHeight="34.0" prefWidth="404.0" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" />
          </children>
       </VBox>
       <Label layoutX="191.0" layoutY="68.0" prefHeight="25.0" prefWidth="130.0" text="YOUR LEADS:" textFill="RED" />

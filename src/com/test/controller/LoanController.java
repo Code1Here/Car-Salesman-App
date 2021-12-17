@@ -42,10 +42,11 @@ public class LoanController extends BaseController implements Initializable {
     @FXML
     void openContract(ActionEvent event) {
         viewFactory.showContractWindow();
-        //Store all the data into the database
+        //TODO: Store all the data into the database
     }
     @FXML
     void clearAction(ActionEvent event) {
+        downPayment.setText("");
         annualInterestRate.setText("");
         numberOfYears.setText("");
         loanAmount.setText("");
@@ -86,6 +87,7 @@ public class LoanController extends BaseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         // Depending on the grossly, the interest rate will be displayed
     }
 

@@ -45,7 +45,6 @@ public class LoginController extends BaseController implements Initializable {
                     viewFactory.showDashBoardWindow();
                     Stage stage = (Stage) errorLabel.getScene().getWindow();
                     viewFactory.closeStage(stage);
-                    CarSalesmanDB.dbDisconnect();
                 } else {
                     JOptionPane.showMessageDialog(null, "Login Failed");
                     emailAddressField.setText("");

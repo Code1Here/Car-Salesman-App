@@ -4,7 +4,8 @@ import com.test.view.ViewFactory;
 import java.util.LinkedList;
 
 public abstract class BaseController {
-    //protected LinkedList<String> leadManager;
+
+
     protected ViewFactory viewFactory;
     private final String fxmlName; // Indication to the fxml file
 
