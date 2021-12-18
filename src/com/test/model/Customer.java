@@ -4,13 +4,13 @@ public class Customer {
 
     private String name;//name of customer
     private int grossPay;//yearly pay before taxes
-    private int number;//number for follow up calls
+    private String number;//number for follow up calls
     private String carModel;//Name of tesla pick
     private int carPrice;//price of tesla
     private String ssn;
 
 
-    public Customer(String name, int grossPay, int number,String ssn) {
+    public Customer(String name, int grossPay, String number, String ssn) {
         this.name = name;
         this.grossPay = grossPay;
         this.number = number;
@@ -29,7 +29,7 @@ public class Customer {
         return grossPay;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 

@@ -2,7 +2,7 @@ package com.test.model;
 
 import javafx.scene.control.TextField;
 
-public class LoanModel {
+public class LoanModel { // TODO: Implement the deposit IF added
     private double annualInterestRate;
     private int numberOfYears;
     private double loanAmount;

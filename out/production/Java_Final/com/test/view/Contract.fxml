@@ -32,25 +32,25 @@
          </font>
       </Label>
       <Label layoutX="12.0" layoutY="247.0" text="Make" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="458.6666666666667" />
-      <Label layoutX="250.0" layoutY="273.0" text="Color" />
-      <Label layoutX="250.0" layoutY="247.0" text="Registration" AnchorPane.leftAnchor="248.0" />
-      <Label layoutX="252.0" layoutY="220.0" text="Year" />
+      <Label layoutX="250.0" layoutY="273.0" text="Price" />
+      <Label layoutX="251.0" layoutY="247.0" text="Year" AnchorPane.leftAnchor="251.0" />
+      <Label layoutX="252.0" layoutY="220.0" text="Color" />
       <Label layoutX="17.0" layoutY="273.0" text="Model" AnchorPane.leftAnchor="12.0" />
       <Label layoutX="11.0" layoutY="344.0" text="This receipt acknowledges the buyer's payment of (check one):">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="373.0" prefHeight="17.0" prefWidth="345.0" text="The agreed total purchase price of" />
-      <Label layoutX="72.0" layoutY="430.0" text="A deposit being made in the amount of" />
-      <Label layoutX="33.0" layoutY="451.0" text="Approved loan paying the remaining balance" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="42.0" />
+      <Label layoutX="47.0" layoutY="394.0" prefHeight="17.0" prefWidth="197.0" text="The agreed total purchase price of:" />
+      <Label layoutX="11.0" layoutY="361.0" text="A deposit being made in the amount of" />
+      <Label layoutX="48.0" layoutY="430.0" prefHeight="17.0" prefWidth="253.0" text="Approved loan paying the remaining balance:" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="48.0" />
       <Label layoutX="13.0" layoutY="503.0" text="Payment made by:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Label layoutX="17.0" layoutY="527.0" text="Check Number (if applicable)" AnchorPane.leftAnchor="25.0" />
-      <TextField layoutX="86.0" layoutY="40.0" prefHeight="25.0" prefWidth="41.0" />
+      <TextField fx:id="dateOfSale" layoutX="86.0" layoutY="40.0" prefHeight="25.0" prefWidth="41.0" />
       <TextField layoutX="411.0" layoutY="39.0" prefHeight="25.0" prefWidth="52.0" />
       <TextField fx:id="buyerNameV" layoutX="86.0" layoutY="73.0" />
       <TextField fx:id="mailingAddressV" layoutX="108.0" layoutY="97.0" />
@@ -60,17 +60,17 @@
       <TextField fx:id="MakeV" layoutX="47.0" layoutY="243.0" />
       <TextField fx:id="ModelV" layoutX="52.0" layoutY="269.0" />
       <TextField fx:id="MileageV" layoutX="61.0" layoutY="296.0" />
-      <TextField fx:id="YearV" layoutX="286.0" layoutY="216.0" prefHeight="25.0" prefWidth="177.0" />
-      <TextField fx:id="RegistrationV" layoutX="314.0" layoutY="243.0" />
-      <TextField fx:id="ColorV" layoutX="286.0" layoutY="269.0" prefHeight="25.0" prefWidth="177.0" />
-      <CheckBox fx:id="TotalCheckBoxV" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" />
-      <TextField fx:id="TotalV" layoutX="264.0" layoutY="369.0" prefHeight="25.0" prefWidth="72.0" />
+      <TextField fx:id="PriceV" layoutX="292.0" layoutY="269.0" prefHeight="25.0" prefWidth="141.0" />
+      <TextField fx:id="ColorV" layoutX="292.0" layoutY="216.0" prefHeight="25.0" prefWidth="141.0" />
+      <TextField fx:id="YearV" layoutX="292.0" layoutY="243.0" prefHeight="25.0" prefWidth="141.0" />
+      <CheckBox fx:id="TotalCheckBoxV" layoutX="11.0" layoutY="394.0" mnemonicParsing="false" />
+      <TextField fx:id="TotalV" layoutX="256.0" layoutY="390.0" prefHeight="25.0" prefWidth="72.0" />
       <CheckBox fx:id="LoanCheckBoxV" layoutX="11.0" layoutY="430.0" mnemonicParsing="false" />
-      <TextField fx:id="LoanBalanceV" layoutX="291.0" layoutY="453.0" prefHeight="25.0" prefWidth="72.0" AnchorPane.bottomAnchor="171.66666666666669" />
-      <TextField fx:id="DepositV" layoutX="291.0" layoutY="426.0" prefHeight="25.0" prefWidth="72.0" />
+      <TextField fx:id="LoanBalanceV" layoutX="305.0" layoutY="426.0" prefHeight="25.0" prefWidth="72.0" AnchorPane.bottomAnchor="148.66666666666669" />
       <CheckBox fx:id="CashCheckBox" layoutX="128.0" layoutY="503.0" mnemonicParsing="false" text="Cash" />
       <CheckBox fx:id="CheckCheckBox" layoutX="188.0" layoutY="503.0" mnemonicParsing="false" text="Check" />
       <TextField fx:id="CheckNumberV" layoutX="188.0" layoutY="523.0" prefHeight="25.0" prefWidth="72.0" />
       <Button layoutX="418.0" layoutY="548.0" mnemonicParsing="false" onAction="#finalize" text="Finalize" />
+      <Label fx:id="deposit" layoutX="223.0" layoutY="361.0" prefHeight="17.0" prefWidth="85.0" text="N/A" />
    </children>
 </AnchorPane>

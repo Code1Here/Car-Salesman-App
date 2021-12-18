@@ -1,5 +1,6 @@
 package com.test.controller;
 
+import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,9 +10,66 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ContractController extends BaseController implements Initializable {
+    public ContractController(ViewFactory viewFactory, String fxmlName) {
+        super(viewFactory, fxmlName);
+    }
+
+    @FXML
+    private TextField dateOfSale;
+
+    @FXML
+    private TextField buyerNameV;
+
+    @FXML
+    private TextField mailingAddressV;
+
+    @FXML
+    private TextField CityStateZipV;
+
+    @FXML
+    private TextField NumberV;
+
+    @FXML
+    private TextField VINv;
+
+    @FXML
+    private TextField MakeV;
+
+    @FXML
+    private TextField ModelV;
+
+    @FXML
+    private TextField MileageV;
+
+    @FXML
+    private TextField ColorV;
+
+    @FXML
+    private TextField YearV;
+
+    @FXML
+    private TextField PriceV;
+
+    @FXML
+    private Label deposit;
+
+    @FXML
+    private CheckBox TotalCheckBoxV;
+
+    @FXML
+    private TextField TotalV;
+
+    @FXML
+    private TextField LoanBalanceV;
+
+    @FXML
+    private CheckBox LoanCheckBoxV;
 
     @FXML
     private CheckBox CashCheckBox;
@@ -22,77 +80,44 @@ public class ContractController extends BaseController implements Initializable 
     @FXML
     private TextField CheckNumberV;
 
-    @FXML
-    private TextField CityStateZipV;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        dateOfSale.setText(String.valueOf(new Date()));
 
-    @FXML
-    private TextField ColorV;
+        try {
+            ResultSet resultSet = SalesProcessDAO.contractSection1();
+            while (resultSet.next()) {
+                buyerNameV.setText(resultSet.getString("full_name"));
+                mailingAddressV.setText(resultSet.getString("address1"));
+                CityStateZipV.setText(resultSet.getString("city") + ", " +
+                                      resultSet.getString("state") + ", " +
+                                      resultSet.getString("zip"));
+                NumberV.setText(resultSet.getString("phone_number"));
+            }
+        } catch (SQLException e) {
+//            e.printStackTrace();
+            System.out.println("FAILED ->   SalesProcessDAO.contractSection1() ");
+        }
 
-    @FXML
-    private TextField LoanBalanceV;
-
-    @FXML
-    private CheckBox LoanCheckBoxV;
-
-    @FXML
-    private TextField MakeV;
-
-    @FXML
-    private TextField MileageV;
-
-    @FXML
-    private TextField ModelV;
-
-    @FXML
-    private TextField NumberV;
-
-    @FXML
-    private TextField RegistrationV;
-
-    @FXML
-    private CheckBox TotalCheckBoxV;
-
-    @FXML
-    private TextField TotalV;
-
-    @FXML
-    private TextField VINv;
-
-    @FXML
-    private TextField YearV;
-
-    @FXML
-    private Label approvedLoan;
-
-    @FXML
-    private TextField buyerNameV;
-
-    @FXML
-    private TextField mailingAddressV;
+        try {
+            ResultSet resultSet = SalesProcessDAO.contractSection2();
+            while (resultSet.next()) {
+                VINv.setText(resultSet.getString("vin"));
+                MakeV.setText(resultSet.getString("make"));
+                ModelV.setText(resultSet.getString("model"));
+                MileageV.setText(resultSet.getString("mileage"));
+                ColorV.setText(resultSet.getString("color"));
+                YearV.setText(resultSet.getString("year"));
+                PriceV.setText(resultSet.getString("price"));
+            }
+        } catch (SQLException e) {
+//            e.printStackTrace();
+            System.out.println("FAILED ->   SalesProcessDAO.contractSection2() ");
+        }
+    }
 
     @FXML
     void finalize(ActionEvent event) {
 
     }
-
-    public ContractController(ViewFactory viewFactory, String fxmlName) {
-        super(viewFactory, fxmlName);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
 }
-
-/*
- import javafx.scene.control.ChoiceBox;
- import javafx.scene.input.MouseEvent;
-
- @FXML
- private ChoiceBox<String> creditDebit;
-
- @FXML
- void payment(MouseEvent event) {
- creditDebit.getSelectionModel().getSelectedItem();
- }
- */
