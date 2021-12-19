@@ -57,7 +57,7 @@ public class SalesProcessDAO {
         // TODO: populate contract with customer info, loan and chosen car details
         Customer temp = customerList.get(index);
         String cust_info = "SELECT full_name, address1, city, state, zip, phone_number\n"
-                + "FROM carsalesman.customer_info" +
+                + "FROM carsalesman.customer_info\n" +
                 "WHERE ssn ='" + temp.getSsn() + "';";
 
         return CarSalesmanDB.dbExecuteQuery(cust_info);

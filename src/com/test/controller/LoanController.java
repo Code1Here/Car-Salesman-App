@@ -23,6 +23,7 @@ public class LoanController extends BaseController implements Initializable {
 
     Customer customer;
     LoanModel loanModel;
+    double requiredDownPayment;
 
     public LoanController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
@@ -81,12 +82,19 @@ public class LoanController extends BaseController implements Initializable {
     @FXML
     void calculate(ActionEvent event) throws InterruptedException {
         if (fieldsAreValid()) { // Get values from text fields
-            double interest = Double.parseDouble(annualInterestRate.getText());
+            /** Data to instantiate loanModel */
+            double interest = Double.parseDouble(annualInterestRate.getText().substring(0, annualInterestRate.getText().length() - 1));
             int year = Integer.parseInt(numberOfYears.getText());
-            double loan = Double.parseDouble(loanAmount.getText());
 
+            double loan;
+            if(loanAmount.getText().charAt(0) == '†') {
+                loan = Double.parseDouble(String.valueOf(customer.getCarPrice()));
+            } else loan = Double.parseDouble(loanAmount.getText());
+
+            loan -= requiredDownPayment;
+
+            /** Achieving access to the model's functions */
             loanModel = new LoanModel(interest, year, loan);
-
             monthlyPayment.setText(String.format("$%.2f", loanModel.getMonthlyPayment()));
             totalPayment.setText(String.format("$%.2f", loanModel.getTotalPayment()));
         }
@@ -98,9 +106,30 @@ public class LoanController extends BaseController implements Initializable {
         try {
             customer = customerList.get(index);
             customer.setCarPrice(SalesProcessDAO.calculatorDefault());
-            downPayment.setText("$"+customer.formatCarPrice());
+            // Text in the bottom
+            CarTotalCost.setText(" Total cost of inquired product: $" + customer.formatCarPrice());
+            // Calculate interest rate based on annual income
+            // Also Generate a pre-approval
+            calcInterest();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void calcInterest() {
+        if (customer.getCarType() != null) {
+            if ((customer.getGrossPay() * 1.5) > customer.getCarPrice()) {
+                annualInterestRate.setText("4.4%");
+                requiredDownPayment = customer.getCarPrice() * 0.07;
+                downPayment.setText("Required: $" + requiredDownPayment);
+
+            } else {
+                annualInterestRate.setText("5.8%");
+                requiredDownPayment = (customer.getCarPrice() * 0.05);
+                downPayment.setText("Required: $" + requiredDownPayment );
+            }
+            numberOfYears.setText("5");
+            loanAmount.setText("† FULL COVERAGE APPROVED");
         }
     }
 

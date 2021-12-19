@@ -39,7 +39,7 @@ public class Customer {
         return carPrice;
     }
 
-    public void setCarPrice(int carPrice) {
+    public void setCarPrice(float carPrice) {
         this.carPrice = carPrice;
     }
 
@@ -55,7 +55,7 @@ public class Customer {
         this.name = name;
     }
 
-    public void setGrossPay(int grossPay) {
+    public void setGrossPay(float grossPay) {
         this.grossPay = grossPay;
     }
 

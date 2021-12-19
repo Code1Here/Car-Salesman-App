@@ -9,11 +9,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="333.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="282.0" layoutY="254.0" mnemonicParsing="false" onAction="#calculate" text="Re-Calculate" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="35.33333333333333" AnchorPane.topAnchor="253.99999999999997" />
-      <Label fx:id="preApprovedLoan" layoutX="14.0" layoutY="293.0" prefHeight="25.0" prefWidth="165.0" AnchorPane.bottomAnchor="14.999999999999982" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="220.66666666666666" AnchorPane.topAnchor="293.0" />
+      <Label fx:id="CarTotalCost" layoutX="14.0" layoutY="293.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="293.0">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></Label>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="132.0" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -84,20 +88,26 @@
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="CarTotalCost" alignment="BOTTOM_RIGHT" prefHeight="15.0" prefWidth="100.0" promptText="This field is required         ">
+            <TextField fx:id="downPayment" alignment="BOTTOM_RIGHT" prefHeight="15.0" prefWidth="100.0" promptText="This field is required         ">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="monthlyPayment" alignment="BOTTOM_RIGHT" editable="false">
+            <TextField fx:id="monthlyPayment" alignment="BOTTOM_RIGHT" editable="false" promptText="One moment" style="-fx-border-color: white;">
                <padding>
                   <Insets top="15.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
             </TextField>
-            <TextField fx:id="totalPayment" alignment="BOTTOM_RIGHT" editable="false">
+            <TextField fx:id="totalPayment" alignment="BOTTOM_RIGHT" editable="false" promptText="One moment" style="-fx-border-color: white;">
                <padding>
                   <Insets top="15.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
             </TextField>
          </children>
       </VBox>
