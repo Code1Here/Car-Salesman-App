@@ -5,13 +5,15 @@ import java.util.LinkedList;
 
 import static com.test.controller.DashBoardController.customerList;
 import static com.test.controller.DashBoardController.index;
+import static com.test.controller.DashBoardController.triggerInit;
+import static com.test.controller.DashBoardController.trigger2;
 
 public class SalesProcessDAO {
 
     public static boolean loginSuccess(String email, String password) throws SQLException {
         String query = "SELECT * FROM carsalesman.login \n" +
-                        "WHERE username='" + email + "'\n"
-                      + "AND password='" + password + "'";
+                "WHERE username='" + email + "'\n"
+                + "AND password='" + password + "'";
 
         ResultSet resultset = CarSalesmanDB.dbExecuteQuery(query);
         return resultset.next();
@@ -21,18 +23,15 @@ public class SalesProcessDAO {
         CarSalesmanDB.dbExecuteUpdate(updateOrInsert); // New or updated  Customer
         customerList.add(choice);
         index = customerList.indexOf(choice);
+        trigger2 = triggerInit = true;
     }
 
     public static ResultSet populateFollowUp() throws SQLException {
         String query = "SELECT full_name, grossly, phone_number, ssn\n" +
-                       "FROM carsalesman.customer_info";
+                "FROM carsalesman.customer_info";
 
-       return CarSalesmanDB.dbExecuteQuery(query);
+        return CarSalesmanDB.dbExecuteQuery(query);
     }
-
-    /**
-     * Use list DS instead
-     **/
 
     public static int calculatorDefault() throws SQLException {
         // TODO: preapproval loan and interest rate based on grossly. grossly from DS. Car price from DB
@@ -58,7 +57,7 @@ public class SalesProcessDAO {
         // TODO: populate contract with customer info, loan and chosen car details
         Customer temp = customerList.get(index);
         String cust_info = "SELECT full_name, address1, city, state, zip, phone_number\n"
-                         + "FROM carsalesman.customer_info" +
+                + "FROM carsalesman.customer_info" +
                 "WHERE ssn ='" + temp.getSsn() + "';";
 
         return CarSalesmanDB.dbExecuteQuery(cust_info);

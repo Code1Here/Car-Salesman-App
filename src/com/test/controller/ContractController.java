@@ -95,7 +95,7 @@ public class ContractController extends BaseController implements Initializable 
                 NumberV.setText(resultSet.getString("phone_number"));
             }
         } catch (SQLException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             System.out.println("FAILED ->   SalesProcessDAO.contractSection1() ");
         }
 
@@ -111,7 +111,7 @@ public class ContractController extends BaseController implements Initializable 
                 PriceV.setText(resultSet.getString("price"));
             }
         } catch (SQLException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             System.out.println("FAILED ->   SalesProcessDAO.contractSection2() ");
         }
     }

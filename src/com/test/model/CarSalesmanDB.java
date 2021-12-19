@@ -24,7 +24,7 @@ public class CarSalesmanDB {
             return connection;
         } catch (SQLException e) {
             System.out.println("Could not get connection to mysql");
-//            e.printStackTrace();
+            e.printStackTrace();
         }
 
         System.out.println("Connection might be null");
@@ -37,7 +37,7 @@ public class CarSalesmanDB {
                 connection.close();
             }
         } catch (SQLException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             System.out.println("FAILED -> dbDisconnect()");
         }
     }
@@ -58,7 +58,7 @@ public class CarSalesmanDB {
             //CachedRowSet Implementation
             crs.populate(resultSet);
         } catch (SQLException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             System.out.println("dbExecuteQuery -> DB.java");
         } finally {
             if (resultSet != null) {
@@ -83,7 +83,7 @@ public class CarSalesmanDB {
             //Run executeUpdate operation with given sql statement
             stmt.executeUpdate(sqlStmt);
         } catch (SQLException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             System.out.println("dbExecuteUpdate -> DB.java");
         } finally {
             if (stmt != null) {

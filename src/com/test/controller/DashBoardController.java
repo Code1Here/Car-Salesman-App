@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -17,13 +18,14 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class DashBoardController extends BaseController implements Initializable {
     public static LinkedList<Customer> customerList = new LinkedList<Customer>();
     public static int index = -1;
-    private boolean triggerInit = true;
-    private boolean trigger2 = false;
+    public static boolean triggerInit = true;
+    public static boolean trigger2 = false;
 
     public DashBoardController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
@@ -37,61 +39,103 @@ public class DashBoardController extends BaseController implements Initializable
 
     @FXML
     void inventory(ActionEvent event) {
-        // I don't remember what goes here
+        if (!customerList.isEmpty()){
+            if(Objects.equals(productChoice.getValue(), "Tesla cybertruck 2022")){
+                Customer temp = customerList.get(index);
+                temp.setCarType("cybertruck");
+            }
+            if(Objects.equals(productChoice.getValue(),"Tesla model x 2021")){
+                Customer temp = customerList.get(index);
+                temp.setCarType("model x");
+            }
+            if(Objects.equals(productChoice.getValue(),"Tesla model y 2021")){
+                Customer temp = customerList.get(index);
+                temp.setCarType("model y");
+            }
+        }
+    }
+    @FXML
+    void updateDynamic(MouseEvent event) {
+        if (triggerInit) {
+           switch(index) {
+               case 0: update(lead1);
+               case 1: update(lead2);
+               case 2: update(lead3);
+               case 3: update(lead4);
+               case 4: update(lead5);
+               case 5: update(lead6);
+               case 6: update(lead7);
+               case 7: update(lead8);
+               case 8: update(lead9);
+               case 9: update(lead10);
+           }
+        }
     }
 
-    @FXML
     void update(TextField text) {
         if (triggerInit) {
             if (trigger2) {
                 Customer temp = customerList.get(index);
-                text.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                temp.format();
+                text.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                 trigger2 = triggerInit = !triggerInit;
                 return;
             }
+            int tempNum = index;
             switch (index) {
                 case 9:
                     Customer temp = customerList.get(index);
-                    lead10.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead10.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 8:
                     temp = customerList.get(index);
-                    lead9.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead9.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 7:
                     temp = customerList.get(index);
-                    lead8.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead8.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 6:
                     temp = customerList.get(index);
-                    lead7.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead7.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 5:
                     temp = customerList.get(index);
-                    lead6.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead6.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 4:
                     temp = customerList.get(index);
-                    lead5.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead5.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 3:
                     temp = customerList.get(index);
-                    lead4.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead4.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 2:
                     temp = customerList.get(index);
-                    lead3.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead3.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 1:
                     temp = customerList.get(index);
-                    lead2.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead2.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
                 case 0:
                     temp = customerList.get(index);
-                    lead1.setText("Name: " + temp.getName() + "Number: " + temp.getNumber() + "Gross Pay: " + temp.getGrossPay());
+                    temp.format();
+                    lead1.setText(temp.getName() + temp.getNumber() +"$"+ temp.formatGross());
                     --index;
             }
             triggerInit = !triggerInit;
+            index = tempNum;
         }
     }
 
@@ -118,13 +162,14 @@ public class DashBoardController extends BaseController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             SalesProcessDAO.inventory(VehicleManager);
             vehicleDisplay = FXCollections.observableArrayList(VehicleManager);
             productChoice.setItems(vehicleDisplay);
         } catch (SQLException e) {
-//            e.printStackTrace();
-            System.out.println("FAILED:    Dash...123:   SalesProcessDAO.inventory(leadManager)");
+            e.printStackTrace();
+            System.out.println("FAILED:   SalesProcessDAO.inventory(leadManager)");
         }
 
         try {
@@ -143,8 +188,8 @@ public class DashBoardController extends BaseController implements Initializable
             triggerInit = !triggerInit;
 
         } catch (SQLException e) {
-//            e.printStackTrace();
-            System.out.println("FAILED:    Dash...132:    SalesProcessDAO.populateFollowUp()");
+            e.printStackTrace();
+            System.out.println("FAILED: SalesProcessDAO.populateFollowUp()");
         }
     }
 
@@ -179,81 +224,129 @@ public class DashBoardController extends BaseController implements Initializable
     protected TextField lead10;
 
     @FXML
+    private Label hint;
+
+    @FXML
+    void HintAction(ActionEvent event) {
+        hint.setText("(name, number, income)");
+    }
+
+    void backgroundBlack(TextField highlight){
+        String defaultColor = "-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;";
+        lead1.setStyle(defaultColor);
+        lead2.setStyle(defaultColor);
+        lead3.setStyle(defaultColor);
+        lead4.setStyle(defaultColor);
+        lead5.setStyle(defaultColor);
+        lead6.setStyle(defaultColor);
+        lead7.setStyle(defaultColor);
+        lead8.setStyle(defaultColor);
+        lead9.setStyle(defaultColor);
+        lead10.setStyle(defaultColor);
+
+        highlight.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+    }
+
+    @FXML
     void lead1Click(MouseEvent event) {
-        index = 0;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead1);
+        if (!customerList.isEmpty()){
+            index = 0;
+            trigger2 = triggerInit = !triggerInit;
+            update(lead1);
+            backgroundBlack(lead1);
+        }
+        System.out.println(customerList.get(0).getName()+" "+customerList.get(0).getCarType());
     }
 
     @FXML
     void lead2Click(MouseEvent event) {
-        if (customerList.size() >= 1)
+        if (customerList.size() > 1) {
             index = 1;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead2);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead2);
+            backgroundBlack(lead2);
+        }
+        System.out.println(customerList.get(1).getName()+" "+customerList.get(1).getCarType());
     }
 
     @FXML
     void lead3Click(MouseEvent event) {
-        if (customerList.size() >= 2)
+        if (customerList.size() > 2) {
             index = 2;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead3);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead3);
+            backgroundBlack(lead3);
+        }
     }
 
     @FXML
     void lead4Click(MouseEvent event) {
-        if (customerList.size() >= 3)
+        if (customerList.size() > 3) {
             index = 3;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead4);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead4);
+            backgroundBlack(lead4);
+        }
     }
 
     @FXML
     void lead5Click(MouseEvent event) {
-        if (customerList.size() >= 4)
+        if (customerList.size() > 4) {
             index = 4;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead5);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead5);
+            backgroundBlack(lead5);
+        }
     }
 
     @FXML
     void lead6Click(MouseEvent event) {
-        if (customerList.size() >= 5)
+        if (customerList.size() > 5) {
             index = 5;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead6);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead6);
+            backgroundBlack(lead6);
+        }
     }
 
     @FXML
     void lead7Click(MouseEvent event) {
-        if (customerList.size() >= 6)
+        if (customerList.size() > 6) {
             index = 6;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead7);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead7);
+            backgroundBlack(lead7);
+        }
+
     }
 
     @FXML
     void lead8Click(MouseEvent event) {
-        if (customerList.size() >= 7)
+        if (customerList.size() > 7) {
             index = 7;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead8);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead8);
+            backgroundBlack(lead8);
+        }
     }
 
     @FXML
     void lead9Click(MouseEvent event) {
-        if (customerList.size() >= 8)
+        if (customerList.size() > 8) {
             index = 8;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead9);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead9);
+            backgroundBlack(lead9);
+        }
     }
 
     @FXML
     void lead10Click(MouseEvent event) {
-        if (customerList.size() >= 9)
+        if (customerList.size() > 9) {
             index = 9;
-        trigger2 = triggerInit = !triggerInit;
-        update(lead10);
+            trigger2 = triggerInit = !triggerInit;
+            update(lead10);
+            backgroundBlack(lead10);
+        }
     }
 }

@@ -45,12 +45,12 @@
                   <Insets top="15.0" />
                </padding>
             </Label>
-            <Label prefHeight="17.0" prefWidth="110.0" text="Down Payment:">
+            <Label prefHeight="17.0" prefWidth="110.0" text="Loan Amount:">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </Label>
-            <Label prefHeight="17.0" prefWidth="110.0" text="Loan Amount:">
+            <Label prefHeight="17.0" prefWidth="110.0" text="Down Payment:">
                <padding>
                   <Insets top="15.0" />
                </padding>
@@ -69,32 +69,32 @@
       </VBox>
       <VBox layoutX="200.0" layoutY="39.0" prefHeight="198.0" prefWidth="165.0" AnchorPane.bottomAnchor="105.33333333333331" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="34.66666666666666" AnchorPane.topAnchor="30.0">
          <children>
-            <TextField fx:id="annualInterestRate" alignment="CENTER" promptText="This field is required">
+            <TextField fx:id="annualInterestRate" alignment="BOTTOM_RIGHT" promptText="This field is required         ">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="numberOfYears" alignment="CENTER" promptText="This field is required">
+            <TextField fx:id="numberOfYears" alignment="BOTTOM_RIGHT" promptText="This field is required         ">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="downPayment" alignment="CENTER" prefHeight="15.0" prefWidth="100.0" promptText="This field is required">
+            <TextField fx:id="loanAmount" alignment="BOTTOM_RIGHT" promptText="This field is required         ">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="loanAmount" alignment="CENTER" promptText="This field is required">
+            <TextField fx:id="CarTotalCost" alignment="BOTTOM_RIGHT" prefHeight="15.0" prefWidth="100.0" promptText="This field is required         ">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="monthlyPayment" alignment="CENTER_RIGHT" editable="false">
+            <TextField fx:id="monthlyPayment" alignment="BOTTOM_RIGHT" editable="false">
                <padding>
                   <Insets top="15.0" />
                </padding>
             </TextField>
-            <TextField fx:id="totalPayment" alignment="CENTER_RIGHT" editable="false">
+            <TextField fx:id="totalPayment" alignment="BOTTOM_RIGHT" editable="false">
                <padding>
                   <Insets top="15.0" />
                </padding>
@@ -102,6 +102,6 @@
          </children>
       </VBox>
       <Button layoutX="159.0" layoutY="254.0" mnemonicParsing="false" onAction="#openContract" text="Approval" AnchorPane.bottomAnchor="53.999999999999986" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="254.0" />
-      <Label fx:id="errorLabel" layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.bottomAnchor="303.0" AnchorPane.leftAnchor="149.00000000000003" AnchorPane.rightAnchor="13.666666666666657" AnchorPane.topAnchor="5.0" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="149.0" layoutY="12.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.bottomAnchor="303.0" AnchorPane.leftAnchor="149.00000000000003" AnchorPane.rightAnchor="13.666666666666657" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

@@ -1,28 +1,38 @@
 package com.test.controller;
 
+import com.test.model.Customer;
 import com.test.model.LoanModel;
+import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.fxml.Initializable;
+
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import static com.test.controller.DashBoardController.customerList;
+import static com.test.controller.DashBoardController.index;
+
 public class LoanController extends BaseController implements Initializable {
+
+    Customer customer;
+    LoanModel loanModel;
+
     public LoanController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
+
     @FXML
     private Label errorLabel;
 
     @FXML
-    private TextField downPayment;
-
-    @FXML
-    private Label preApprovedLoan;
+    private Label CarTotalCost;
 
     @FXML
     private TextField annualInterestRate;
@@ -32,6 +42,9 @@ public class LoanController extends BaseController implements Initializable {
 
     @FXML
     private TextField loanAmount;
+
+    @FXML
+    private TextField downPayment;
 
     @FXML
     private TextField monthlyPayment;
@@ -44,21 +57,19 @@ public class LoanController extends BaseController implements Initializable {
         viewFactory.showContractWindow();
         //TODO: Store all the data into the database
     }
+
     @FXML
     void clearAction(ActionEvent event) {
-        downPayment.setText("");
-        annualInterestRate.setText("");
         numberOfYears.setText("");
         loanAmount.setText("");
         monthlyPayment.setText("");
         totalPayment.setText("");
-        preApprovedLoan.setText("");
-        errorLabel.setText("");
+        CarTotalCost.setText("");
     }
 
     @FXML
     void closeAction(ActionEvent event) {
-        Stage stage = (Stage) preApprovedLoan.getScene().getWindow();
+        Stage stage = (Stage) annualInterestRate.getScene().getWindow();
         viewFactory.closeStage(stage);
     }
 
@@ -74,21 +85,23 @@ public class LoanController extends BaseController implements Initializable {
             int year = Integer.parseInt(numberOfYears.getText());
             double loan = Double.parseDouble(loanAmount.getText());
 
-            LoanModel loanModel = new LoanModel(interest, year, loan);
+            loanModel = new LoanModel(interest, year, loan);
 
-            // Display monthly payment and total payment
             monthlyPayment.setText(String.format("$%.2f", loanModel.getMonthlyPayment()));
             totalPayment.setText(String.format("$%.2f", loanModel.getTotalPayment()));
-//        } else {
-//            if(Thread.sleep(2000))
-//            errorLabel.setText("");
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         // Depending on the grossly, the interest rate will be displayed
+        try {
+            customer = customerList.get(index);
+            customer.setCarPrice(SalesProcessDAO.calculatorDefault());
+            downPayment.setText("$"+customer.formatCarPrice());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean fieldsAreValid() {

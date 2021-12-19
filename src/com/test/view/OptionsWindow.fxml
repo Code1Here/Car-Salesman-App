@@ -13,7 +13,7 @@
       <Label layoutX="25.0" layoutY="91.0" prefHeight="17.0" prefWidth="126.0" text="Font Size:" />
       <Label layoutX="25.0" layoutY="157.0" prefHeight="17.0" prefWidth="126.0" text="Color theme:" />
       <Label layoutX="223.0" layoutY="26.0" prefHeight="25.0" prefWidth="92.0" text="Options" />
-      <Button layoutX="249.0" layoutY="211.0" mnemonicParsing="false" onAction="#cancelBtnAction" text="Cancel" />
+      <Button layoutX="249.0" layoutY="211.0" mnemonicParsing="false" onAction="#cancelBtnAction" text="Close" />
       <Button layoutX="391.0" layoutY="211.0" mnemonicParsing="false" onAction="#applyBtnAction" text="Apply" />
    </children>
 </AnchorPane>
