@@ -8,15 +8,62 @@ import static com.test.controller.DashBoardController.index;
 import static com.test.controller.DashBoardController.triggerInit;
 import static com.test.controller.DashBoardController.trigger2;
 
-public class SalesProcessDAO {
+public class SalesProcessDAO { // Data Access Object
+
+    static boolean signingIn = true;
+    public static String status;
+    public static String stamp;
 
     public static boolean loginSuccess(String email, String password) throws SQLException {
         String query = "SELECT * FROM carsalesman.login \n" +
                 "WHERE username='" + email + "'\n"
                 + "AND password='" + password + "'";
 
+        ResultSet temp = CarSalesmanDB.dbExecuteQuery(query);
+
+        stamp = null;
+        while (temp.next()) {
+            stamp = temp.getString("employee_id");
+        }
+
+        if (stamp != null) {
+            // Mark log in/out for employer table
+            status = "UPDATE carsalesman.login\n" +
+                    "SET time_log = 'clocked-in'\n" +
+                    "WHERE employee_id = '" + stamp + "'";
+
+            SalesProcessDAO.punchIn_punchOut(stamp, status);
+        } else
+            System.out.println("Trouble logging in and updating status");
+
+
         ResultSet resultset = CarSalesmanDB.dbExecuteQuery(query);
-        return resultset.next();
+        return resultset.next(); // return true if login is a success
+    }
+
+
+    public static void punchIn_punchOut(String stamp, String status) throws SQLException {
+        if (signingIn) {
+            CarSalesmanDB.dbExecuteUpdate(status); // Update status for employee table
+
+            String log = "INSERT INTO carsalesman.login_history (employee_id, status)\n" +
+                    "VALUES ('" + stamp + "', 'on-duty')";
+
+            CarSalesmanDB.dbExecuteUpdate(log); // Update log to track employee
+            signingIn = !signingIn;
+        } else {
+            status = "UPDATE carsalesman.login\n" +
+                    "SET time_log = 'clocked-out'\n" +
+                    "WHERE employee_id = '" + stamp + "'";
+            CarSalesmanDB.dbExecuteUpdate(status);
+
+            String log = "INSERT INTO carsalesman.login_history (employee_id, status)\n" +
+                    "VALUES ('" + stamp + "', 'off-duty')";
+
+            CarSalesmanDB.dbExecuteUpdate(log);
+            signingIn = !signingIn;
+        }
+
     }
 
     public static void submitForm(Customer choice, String updateOrInsert) throws SQLException {
@@ -34,7 +81,6 @@ public class SalesProcessDAO {
     }
 
     public static int calculatorDefault() throws SQLException {
-        // TODO: preapproval loan and interest rate based on grossly. grossly from DS. Car price from DB
         //pulling from database
         Customer temp = customerList.get(index);
 
@@ -49,12 +95,10 @@ public class SalesProcessDAO {
             price = resultset.getInt("price");
         }
         // need strings of the customer info
-        // TODO: loan stored into DB (probably different function)
         return price;
     }
 
     public static ResultSet contractSection1() throws SQLException {
-        // TODO: populate contract with customer info, loan and chosen car details
         Customer temp = customerList.get(index);
         String cust_info = "SELECT full_name, address1, city, state, zip, phone_number\n"
                 + "FROM carsalesman.customer_info\n" +
@@ -73,12 +117,11 @@ public class SalesProcessDAO {
     }
 
     public static void inventory(LinkedList<String> VehicleManager) throws SQLException {
-        // TODO: pull car data into the customers table joint table <- old
         String query = "SELECT CONCAT(inventory.make, ' ', inventory.model , ' ', inventory.year) \n" +
                 "AS product FROM carsalesman.inventory;";
         ResultSet resultset = CarSalesmanDB.dbExecuteQuery(query);
         while (resultset.next()) {
             VehicleManager.add(resultset.getString("product"));
-        } // TODO: handled with an array
+        }
     }
 }

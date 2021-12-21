@@ -5,17 +5,14 @@ import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.ResourceBundle;
 
 
-public class ClientDetailsController extends BaseController implements Initializable {
+public class ClientDetailsController extends BaseController {
     public ClientDetailsController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
@@ -71,11 +68,6 @@ public class ClientDetailsController extends BaseController implements Initializ
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
 }

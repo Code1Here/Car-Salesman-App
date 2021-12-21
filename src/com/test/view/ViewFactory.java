@@ -18,7 +18,7 @@ public class ViewFactory {
         activeStages = new ArrayList<>();
     }
 
-    public void showLoginWindow() { // all of these constructors had emailManager objects in constructor
+    public void showLoginWindow() {
         BaseController controller = new LoginController(this, "login.fxml");
         initializeStage(controller);
     }

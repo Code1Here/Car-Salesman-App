@@ -16,9 +16,6 @@ Button:hover {
     -fx-background-color: white;
 }
 
-/*ChoiceBox >* {*/
-/*    -fx-background-color: #f1f7a2;*/
-/*}*/
 Slider .axis {
     -fx-tick-label-fill: black;
 }

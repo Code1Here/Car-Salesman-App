@@ -24,13 +24,11 @@ public class LoanController extends BaseController implements Initializable {
     Customer customer;
     LoanModel loanModel;
     double requiredDownPayment;
+    double promo;
 
     public LoanController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
-
-    @FXML
-    private Label errorLabel;
 
     @FXML
     private Label CarTotalCost;
@@ -62,12 +60,20 @@ public class LoanController extends BaseController implements Initializable {
     @FXML
     void clearAction(ActionEvent event) {
         numberOfYears.setText("");
-        loanAmount.setText("");
+        downPayment.setText("");
         monthlyPayment.setText("");
         totalPayment.setText("");
-        CarTotalCost.setText("");
+        promoLabel.setText("");
     }
-
+    @FXML
+    private Label promoLabel;
+    @FXML
+    void promoAction(ActionEvent event) {
+        if(promo > 0) { // Precondition: MUST press 're-calculate' once after initialization
+            promoLabel.setText("Christmas promo. w/ min. $" + String.valueOf(promo) + " deposit!");
+            promoLabel.setStyle("-fx-background-color: black;");
+        }
+    }
     @FXML
     void closeAction(ActionEvent event) {
         Stage stage = (Stage) annualInterestRate.getScene().getWindow();
@@ -85,13 +91,23 @@ public class LoanController extends BaseController implements Initializable {
             /** Data to instantiate loanModel */
             double interest = Double.parseDouble(annualInterestRate.getText().substring(0, annualInterestRate.getText().length() - 1));
             int year = Integer.parseInt(numberOfYears.getText());
+            double loan = Double.parseDouble(String.valueOf(customer.getCarPrice()));
 
-            double loan;
-            if(loanAmount.getText().charAt(0) == '†') {
-                loan = Double.parseDouble(String.valueOf(customer.getCarPrice()));
-            } else loan = Double.parseDouble(loanAmount.getText());
+            double markup  = 0;
+            if (downPayment.getText().charAt(0) != 'R') {
 
-            loan -= requiredDownPayment;
+                markup  = Double.parseDouble(downPayment.getText());
+            }
+
+            promo = requiredDownPayment + 3000.00;
+
+            if (markup  >= promo) { // If the customer is willing to pay over $3k over the requirement
+                interest -= 0.7; // We will lower their interest rate of the loan
+                annualInterestRate.setText(String.valueOf(interest + "%"));
+                loan -= markup ;
+            } else
+                loan -= requiredDownPayment;
+
 
             /** Achieving access to the model's functions */
             loanModel = new LoanModel(interest, year, loan);
@@ -116,20 +132,19 @@ public class LoanController extends BaseController implements Initializable {
         }
     }
 
-    public void calcInterest() {
+    public void calcInterest() { // Upon initialization, but not the special
         if (customer.getCarType() != null) {
-            if ((customer.getGrossPay() * 1.5) > customer.getCarPrice()) {
+            if ((customer.getGrossPay() * 0.8) > customer.getCarPrice()) {
                 annualInterestRate.setText("4.4%");
                 requiredDownPayment = customer.getCarPrice() * 0.07;
-                downPayment.setText("Required: $" + requiredDownPayment);
-
             } else {
                 annualInterestRate.setText("5.8%");
                 requiredDownPayment = (customer.getCarPrice() * 0.05);
-                downPayment.setText("Required: $" + requiredDownPayment );
             }
+
+            downPayment.setText("Required: $" + requiredDownPayment);
             numberOfYears.setText("5");
-            loanAmount.setText("† FULL COVERAGE APPROVED");
+            loanAmount.setText("† FULLY PRE-APPROVED");
         }
     }
 
@@ -137,7 +152,8 @@ public class LoanController extends BaseController implements Initializable {
         // We will check the contents of our fields
         if (annualInterestRate.getText().isEmpty()
                 || numberOfYears.getText().isEmpty() || downPayment.getText().isEmpty()) {
-            errorLabel.setText("Please fill the required fields");
+            promoLabel.setText("Please fill the required fields");
+            promoLabel.setStyle("-fx-background-color: black;");
             return false;
         }
         return true;

@@ -17,9 +17,14 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static com.test.model.SalesProcessDAO.status;
+import static com.test.model.SalesProcessDAO.stamp;
 
 public class DashBoardController extends BaseController implements Initializable {
     public static LinkedList<Customer> customerList = new LinkedList<Customer>();
@@ -150,7 +155,10 @@ public class DashBoardController extends BaseController implements Initializable
     }
 
     @FXML
-    void closeAction(ActionEvent event) {
+    void closeAction(ActionEvent event) throws SQLException {
+        Date date = new Date();
+        Timestamp ts = new Timestamp(date.getTime());
+        SalesProcessDAO.punchIn_punchOut(stamp, status);
         Stage stage = (Stage) productChoice.getScene().getWindow();
         viewFactory.closeStage(stage);
     }

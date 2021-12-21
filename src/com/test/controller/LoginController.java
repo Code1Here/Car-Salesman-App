@@ -65,10 +65,12 @@ public class LoginController extends BaseController implements Initializable {
     private boolean fieldsAreValid() {
         // We will check the contents of our fields
         if (emailAddressField.getText().isEmpty()) {
+            errorLabel.setStyle("-fx-text-fill: black");
             errorLabel.setText("Please fill email");
             return false;
         }
         if (passwordField.getText().isEmpty()) {
+            errorLabel.setStyle("-fx-text-fill: black");
             errorLabel.setText("Please fill password");
             return false;
         }

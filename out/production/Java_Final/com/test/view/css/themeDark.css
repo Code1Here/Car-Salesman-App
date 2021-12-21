@@ -7,7 +7,7 @@ AnchorPane {
     -fx-text-fill: #15568c;
 }
 
-Button, Label, ChoiceBox, Slider, TextField {
+Button, Label, ChoiceBox, Slider{
     -fx-text-fill: white;
 }
 

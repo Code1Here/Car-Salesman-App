@@ -1,5 +1,6 @@
 package com.test.controller;
 
+import com.test.model.Customer;
 import com.test.model.SalesProcessDAO;
 import com.test.view.ViewFactory;
 import javafx.event.ActionEvent;
@@ -15,7 +16,12 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import static com.test.controller.DashBoardController.customerList;
+import static com.test.controller.DashBoardController.index;
+
 public class ContractController extends BaseController implements Initializable {
+    Customer customer = customerList.get(index);
+
     public ContractController(ViewFactory viewFactory, String fxmlName) {
         super(viewFactory, fxmlName);
     }
@@ -105,10 +111,10 @@ public class ContractController extends BaseController implements Initializable 
                 VINv.setText(resultSet.getString("vin"));
                 MakeV.setText(resultSet.getString("make"));
                 ModelV.setText(resultSet.getString("model"));
-                MileageV.setText(resultSet.getString("mileage"));
+                MileageV.setText(resultSet.getString("mileage") + " miles");
                 ColorV.setText(resultSet.getString("color"));
                 YearV.setText(resultSet.getString("year"));
-                PriceV.setText(resultSet.getString("price"));
+                PriceV.setText("$"+customer.formatCarPrice());
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -72,5 +72,10 @@
       <TextField fx:id="CheckNumberV" layoutX="188.0" layoutY="523.0" prefHeight="25.0" prefWidth="72.0" />
       <Button layoutX="418.0" layoutY="548.0" mnemonicParsing="false" onAction="#finalize" text="Finalize" />
       <Label fx:id="deposit" layoutX="223.0" layoutY="361.0" prefHeight="17.0" prefWidth="85.0" text="N/A" />
+      <Label layoutX="348.0" layoutY="394.0" prefHeight="17.0" prefWidth="107.0" style="-fx-background-color: black;" text="  Promo: no sales tax!" textFill="GOLD">
+         <font>
+            <Font name="System Italic" size="10.5" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
