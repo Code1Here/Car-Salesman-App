@@ -10,6 +10,8 @@ public class Customer {
     private String carModel;//Name of tesla pick
     private float carPrice;//price of tesla they had chosen
     private final String ssn; // DB primary key
+    private float downPayment; // agreed upon down payment
+    private float loan;
 
 
     public Customer(String name, int grossPay, String number, String ssn) {
@@ -17,6 +19,22 @@ public class Customer {
         this.grossPay = grossPay;
         this.number = number;
         this.ssn = ssn;
+    }
+
+    public float getLoan() {
+        return loan;
+    }
+
+    public void setLoan(float loan) {
+        this.loan = loan;
+    }
+
+    public float getDownPayment() {
+        return downPayment;
+    }
+
+    public void setDownPayment(float downPayment) {
+        this.downPayment = downPayment;
     }
 
     public String getSsn() {
@@ -86,6 +104,20 @@ public class Customer {
 
     public String formatCarPrice() {
         String newString = String.format("%.2f", carPrice);
+        double amount = Double.parseDouble(newString);
+        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        return formatter.format(amount);
+    }
+
+    public String formatDownPayment() {
+        String newString = String.format("%.2f", downPayment);
+        double amount = Double.parseDouble(newString);
+        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        return formatter.format(amount);
+    }
+
+    public String formatloan() {
+        String newString = String.format("%.2f", loan);
         double amount = Double.parseDouble(newString);
         DecimalFormat formatter = new DecimalFormat("#,###.00");
         return formatter.format(amount);

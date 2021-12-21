@@ -4,7 +4,6 @@ import com.test.view.ViewFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.time.LocalDate;
 
 public class Launcher extends Application {
     public static void main(String[] args){
@@ -19,7 +18,5 @@ public class Launcher extends Application {
 
     }
 
-    public static LocalDate getLocalDate() {
-        return LocalDate.now();
-    }
+
 }

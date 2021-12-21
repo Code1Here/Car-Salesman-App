@@ -54,7 +54,7 @@ public class LoanController extends BaseController implements Initializable {
     @FXML
     void openContract(ActionEvent event) {
         viewFactory.showContractWindow();
-        //TODO: Store all the data into the database
+        //TODO: Initialize all the data onto the contract
     }
 
     @FXML
@@ -95,7 +95,6 @@ public class LoanController extends BaseController implements Initializable {
 
             double markup  = 0;
             if (downPayment.getText().charAt(0) != 'R') {
-
                 markup  = Double.parseDouble(downPayment.getText());
             }
 
@@ -105,8 +104,12 @@ public class LoanController extends BaseController implements Initializable {
                 interest -= 0.7; // We will lower their interest rate of the loan
                 annualInterestRate.setText(String.valueOf(interest + "%"));
                 loan -= markup ;
-            } else
+                customer.setDownPayment((float) markup);
+            } else {
                 loan -= requiredDownPayment;
+                customer.setDownPayment((float) requiredDownPayment);
+            }
+            customer.setLoan((float) loan);
 
 
             /** Achieving access to the model's functions */
@@ -118,7 +121,7 @@ public class LoanController extends BaseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Depending on the grossly, the interest rate will be displayed
+        // Depending on the gross income, the interest rate will be displayed
         try {
             customer = customerList.get(index);
             customer.setCarPrice(SalesProcessDAO.calculatorDefault());

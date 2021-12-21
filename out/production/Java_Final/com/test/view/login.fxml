@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="302.0" prefWidth="456.0" style="-fx-background-color: #7b7878;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="217.0" layoutY="218.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="26.0" prefWidth="123.0" text="Login" />
+      <Button layoutX="217.0" layoutY="218.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="26.0" prefWidth="123.0" text="Punch-in" />
       <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="76.0" prefHeight="26.0" prefWidth="82.0" text="Username:" textFill="WHITE" />
       <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="149.0" prefHeight="26.0" prefWidth="82.0" text="Password:" textFill="WHITE" />
       <TextField fx:id="emailAddressField" layoutX="176.0" layoutY="76.0" onKeyPressed="#clearError" prefHeight="25.0" prefWidth="206.0" promptText="Enter your user name" />

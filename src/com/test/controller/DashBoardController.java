@@ -23,8 +23,8 @@ import java.util.LinkedList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.test.model.SalesProcessDAO.status;
-import static com.test.model.SalesProcessDAO.stamp;
+import static com.test.model.SalesProcessDAO.status; // update clocked-in or clocked-out
+import static com.test.model.SalesProcessDAO.stamp; // employee_id (PK)
 
 public class DashBoardController extends BaseController implements Initializable {
     public static LinkedList<Customer> customerList = new LinkedList<Customer>();

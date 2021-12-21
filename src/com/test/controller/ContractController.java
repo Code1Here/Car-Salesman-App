@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -19,6 +21,9 @@ import java.util.ResourceBundle;
 import static com.test.controller.DashBoardController.customerList;
 import static com.test.controller.DashBoardController.index;
 
+import java.time.LocalDate;
+
+
 public class ContractController extends BaseController implements Initializable {
     Customer customer = customerList.get(index);
 
@@ -28,6 +33,13 @@ public class ContractController extends BaseController implements Initializable 
 
     @FXML
     private TextField dateOfSale;
+
+    public static LocalDate getLocalDate() {
+        return LocalDate.now();
+    }
+
+    @FXML
+    private TextField invoiceNo;
 
     @FXML
     private TextField buyerNameV;
@@ -66,29 +78,25 @@ public class ContractController extends BaseController implements Initializable 
     private Label deposit;
 
     @FXML
-    private CheckBox TotalCheckBoxV;
-
-    @FXML
     private TextField TotalV;
 
     @FXML
     private TextField LoanBalanceV;
 
+    private String bankNote = "CHECK #";
     @FXML
-    private CheckBox LoanCheckBoxV;
-
-    @FXML
-    private CheckBox CashCheckBox;
-
-    @FXML
-    private CheckBox CheckCheckBox;
+    void CashCheckBox(MouseEvent event) {
+        bankNote = "CASH";
+    }
 
     @FXML
     private TextField CheckNumberV;
 
+    private String vinOfPurchase;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dateOfSale.setText(String.valueOf(new Date()));
+        dateOfSale.setText(String.valueOf(getLocalDate()));
+        invoiceNo.setText("4032"); // I had set this DB column to auto-increment, however last minute constraints leaves me to hard code a high number to simulate a working business
 
         try {
             ResultSet resultSet = SalesProcessDAO.contractSection1();
@@ -96,8 +104,8 @@ public class ContractController extends BaseController implements Initializable 
                 buyerNameV.setText(resultSet.getString("full_name"));
                 mailingAddressV.setText(resultSet.getString("address1"));
                 CityStateZipV.setText(resultSet.getString("city") + ", " +
-                                      resultSet.getString("state") + ", " +
-                                      resultSet.getString("zip"));
+                        resultSet.getString("state") + ", " +
+                        resultSet.getString("zip"));
                 NumberV.setText(resultSet.getString("phone_number"));
             }
         } catch (SQLException e) {
@@ -114,16 +122,41 @@ public class ContractController extends BaseController implements Initializable 
                 MileageV.setText(resultSet.getString("mileage") + " miles");
                 ColorV.setText(resultSet.getString("color"));
                 YearV.setText(resultSet.getString("year"));
-                PriceV.setText("$"+customer.formatCarPrice());
             }
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("FAILED ->   SalesProcessDAO.contractSection2() ");
         }
+
+        PriceV.setText("$" + customer.formatCarPrice());
+        TotalV.setText("$" + customer.formatCarPrice());
+        deposit.setText("$" + customer.formatDownPayment());
+
+        if (customer.getLoan() != 0.00)
+            LoanBalanceV.setText("$" + customer.formatloan());
+        else
+            LoanBalanceV.setText("REFUSE");
+
+        vinOfPurchase = VINv.getText();
     }
 
     @FXML
     void finalize(ActionEvent event) {
+        // (invoice, date, total, loan, deposit, banknote, vin, ssn, employee_id)
+        String finalSale = invoiceNo.getText().trim() + "', '" + dateOfSale.getText().trim() + "', '" + TotalV.getText().trim()
+                + "', '" + LoanBalanceV.getText().trim() + "', '" + deposit.getText().trim() + "', '" + bankNote + CheckNumberV.getText().trim()
+                + "', '" + vinOfPurchase + "', '" + customer.getSsn() + "', '";
 
+        try {
+            SalesProcessDAO.finalization(finalSale);
+// TODO: At this point I can, if I want, close the windows but I need to demonstrate the CSS via options window
+
+//            Stage stage = (Stage) dateOfSale.getScene().getWindow();
+//            viewFactory.closeStage(stage);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("finalize function failed in ContractController.java");
+        }
     }
 }

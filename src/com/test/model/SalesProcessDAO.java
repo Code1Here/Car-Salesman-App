@@ -11,8 +11,8 @@ import static com.test.controller.DashBoardController.trigger2;
 public class SalesProcessDAO { // Data Access Object
 
     static boolean signingIn = true;
-    public static String status;
-    public static String stamp;
+    public static String status; // On-duty or Off-duty
+    public static String stamp; // employee_id
 
     public static boolean loginSuccess(String email, String password) throws SQLException {
         String query = "SELECT * FROM carsalesman.login \n" +
@@ -50,7 +50,6 @@ public class SalesProcessDAO { // Data Access Object
                     "VALUES ('" + stamp + "', 'on-duty')";
 
             CarSalesmanDB.dbExecuteUpdate(log); // Update log to track employee
-            signingIn = !signingIn;
         } else {
             status = "UPDATE carsalesman.login\n" +
                     "SET time_log = 'clocked-out'\n" +
@@ -61,9 +60,18 @@ public class SalesProcessDAO { // Data Access Object
                     "VALUES ('" + stamp + "', 'off-duty')";
 
             CarSalesmanDB.dbExecuteUpdate(log);
-            signingIn = !signingIn;
         }
+        signingIn = !signingIn;
 
+    }
+
+    public static void inventory(LinkedList<String> VehicleManager) throws SQLException {
+        String query = "SELECT CONCAT(inventory.make, ' ', inventory.model , ' ', inventory.year) \n" +
+                "AS product FROM carsalesman.inventory;";
+        ResultSet resultset = CarSalesmanDB.dbExecuteQuery(query);
+        while (resultset.next()) {
+            VehicleManager.add(resultset.getString("product"));
+        }
     }
 
     public static void submitForm(Customer choice, String updateOrInsert) throws SQLException {
@@ -116,12 +124,13 @@ public class SalesProcessDAO { // Data Access Object
         return CarSalesmanDB.dbExecuteQuery(inventory);
     }
 
-    public static void inventory(LinkedList<String> VehicleManager) throws SQLException {
-        String query = "SELECT CONCAT(inventory.make, ' ', inventory.model , ' ', inventory.year) \n" +
-                "AS product FROM carsalesman.inventory;";
-        ResultSet resultset = CarSalesmanDB.dbExecuteQuery(query);
-        while (resultset.next()) {
-            VehicleManager.add(resultset.getString("product"));
-        }
+    public static void finalization(String finalSale) throws SQLException {
+        String contractSale =
+                "INSERT INTO carsalesman.invoice (invoice, date, total, loan, deposit, banknote, vin, ssn, employee_id)" +
+                "VALUES ('" + finalSale + stamp + "')";
+
+        // TODO: At this point I can, if I want, remove the customer off the list of leads by popping customer off the array
+        System.out.println(stamp);
+        CarSalesmanDB.dbExecuteUpdate(contractSale);
     }
 }

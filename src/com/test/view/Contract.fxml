@@ -50,8 +50,8 @@
          </font>
       </Label>
       <Label layoutX="17.0" layoutY="527.0" text="Check Number (if applicable)" AnchorPane.leftAnchor="25.0" />
-      <TextField fx:id="dateOfSale" layoutX="86.0" layoutY="40.0" prefHeight="25.0" prefWidth="41.0" />
-      <TextField layoutX="411.0" layoutY="39.0" prefHeight="25.0" prefWidth="52.0" />
+      <TextField fx:id="dateOfSale" layoutX="86.0" layoutY="40.0" prefHeight="25.0" prefWidth="85.0" AnchorPane.leftAnchor="90.0" />
+      <TextField fx:id="invoiceNo" layoutX="411.0" layoutY="39.0" prefHeight="25.0" prefWidth="52.0" />
       <TextField fx:id="buyerNameV" layoutX="86.0" layoutY="73.0" />
       <TextField fx:id="mailingAddressV" layoutX="108.0" layoutY="97.0" />
       <TextField fx:id="CityStateZipV" layoutX="136.0" layoutY="123.0" prefHeight="25.0" prefWidth="149.0" />
@@ -63,12 +63,12 @@
       <TextField fx:id="PriceV" layoutX="292.0" layoutY="269.0" prefHeight="25.0" prefWidth="141.0" />
       <TextField fx:id="ColorV" layoutX="292.0" layoutY="216.0" prefHeight="25.0" prefWidth="141.0" />
       <TextField fx:id="YearV" layoutX="292.0" layoutY="243.0" prefHeight="25.0" prefWidth="141.0" />
-      <CheckBox fx:id="TotalCheckBoxV" layoutX="11.0" layoutY="394.0" mnemonicParsing="false" />
+      <CheckBox layoutX="11.0" layoutY="394.0" mnemonicParsing="false" />
       <TextField fx:id="TotalV" layoutX="256.0" layoutY="390.0" prefHeight="25.0" prefWidth="72.0" />
-      <CheckBox fx:id="LoanCheckBoxV" layoutX="11.0" layoutY="430.0" mnemonicParsing="false" />
-      <TextField fx:id="LoanBalanceV" layoutX="305.0" layoutY="426.0" prefHeight="25.0" prefWidth="72.0" AnchorPane.bottomAnchor="148.66666666666669" />
-      <CheckBox fx:id="CashCheckBox" layoutX="128.0" layoutY="503.0" mnemonicParsing="false" text="Cash" />
-      <CheckBox fx:id="CheckCheckBox" layoutX="188.0" layoutY="503.0" mnemonicParsing="false" text="Check" />
+      <CheckBox layoutX="11.0" layoutY="430.0" mnemonicParsing="false" />
+      <TextField fx:id="LoanBalanceV" layoutX="305.0" layoutY="426.0" prefHeight="25.0" prefWidth="72.0" promptText="    - - - -" AnchorPane.bottomAnchor="148.66666666666669" />
+      <CheckBox layoutX="128.0" layoutY="503.0" mnemonicParsing="false" onMouseClicked="#CashCheckBox" text="Cash" />
+      <CheckBox layoutX="188.0" layoutY="503.0" mnemonicParsing="false" text="Check" />
       <TextField fx:id="CheckNumberV" layoutX="188.0" layoutY="523.0" prefHeight="25.0" prefWidth="72.0" />
       <Button layoutX="418.0" layoutY="548.0" mnemonicParsing="false" onAction="#finalize" text="Finalize" />
       <Label fx:id="deposit" layoutX="223.0" layoutY="361.0" prefHeight="17.0" prefWidth="85.0" text="N/A" />
