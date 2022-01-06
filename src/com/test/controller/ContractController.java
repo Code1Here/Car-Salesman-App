@@ -151,8 +151,8 @@ public class ContractController extends BaseController implements Initializable 
             SalesProcessDAO.finalization(finalSale);
 // TODO: At this point I can, if I want, close the windows but I need to demonstrate the CSS via options window
 
-//            Stage stage = (Stage) dateOfSale.getScene().getWindow();
-//            viewFactory.closeStage(stage);
+            Stage stage = (Stage) dateOfSale.getScene().getWindow();
+            viewFactory.closeStage(stage);
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -87,6 +87,7 @@ public class ViewFactory {
     public void setFontSize(FontSize fontSize) {
         this.fontSize = fontSize;
     }
+
     public void updateStyles() { // In javaFX CSS styles are applied to the scenes which need a list of scenes ( meaning all the active scenes running in the program. This is easy to do because we have the initialize-stage and closeStage methods
         for (Stage stage: activeStages){
             Scene scene = stage.getScene();

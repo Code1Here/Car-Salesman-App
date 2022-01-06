@@ -3,8 +3,7 @@ package com.test.controller;
 import com.test.view.ViewFactory;
 
 public abstract class BaseController {
-
-
+ 
     protected ViewFactory viewFactory;
     private final String fxmlName; // Indication to the fxml file
 
