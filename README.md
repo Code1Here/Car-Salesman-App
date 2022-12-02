@@ -26,7 +26,7 @@ Database built with MySQL using JDBC connector.
 ![SQL_visual](https://user-images.githubusercontent.com/87147191/205205487-801ee871-153e-41e7-99bc-b21cca1e5e51.png)
 
 ## Screenshots
-Take note of ***Total cost of inquired product*** highlighted in red
+Upon loan generation, take note of ***Total cost of inquired product*** highlighted in red
 
 
 
