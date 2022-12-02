@@ -6,7 +6,7 @@ Software Engineering final project for Java Application Development.
 
 A desktop app where users register customer info onto a dashboard, after punching
 in/signing in. Users, which are the car salesman, can see their list of customers they
-have dealt with in order. They can open a fill out form to add new users. They can select a dropdown menu to view the inventory of cars available. They can match the selection to a customer and pop open a pre-generated approval for a loan based on yearly gross income —with a required down payment. There are options for promos and once that phase or conversation is agreed upon by both parties, the next window to appear is a contract joining their information, the vehicles information and new data on how they choose to pay.
+have dealt with in order. They can open a fill out form to add new users. They can select a dropdown menu to view the inventory of cars available. They can match the selection to a customer and pop open a pre-generated approval for a loan based on **yearly gross income** ——with a required down payment. There are options for promos and once that phase or conversation is agreed upon by both parties, the next window to appear is a contract joining their information, the vehicles information and new data on how they choose to pay.
 
 ### Use Cases
 
