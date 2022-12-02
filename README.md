@@ -26,6 +26,7 @@ Database built with MySQL using JDBC connector.
 ![SQL_visual](https://user-images.githubusercontent.com/87147191/205205487-801ee871-153e-41e7-99bc-b21cca1e5e51.png)
 
 ## Screenshots
+Take note of ***Total cost of inquired product*** highlighted in red
 
 
 
@@ -57,7 +58,7 @@ Database built with MySQL using JDBC connector.
 
 
 
-*Cheaper vehicle selection (Cybertruck)*
+
 ![Screenshot (196)](https://user-images.githubusercontent.com/87147191/205206222-aab474cf-9868-48ba-9e46-23580dc34797.png)
 
 
