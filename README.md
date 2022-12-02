@@ -28,27 +28,22 @@ Database built with MySQL using JDBC connector.
 ## Screenshots
 
 ![Screenshot (185)](https://user-images.githubusercontent.com/87147191/205206215-d81070ed-1b7b-4211-882a-085696d5c1ef.png)
-            **_________________________________________________________________________________**
+
+
 ![Screenshot (188)](https://user-images.githubusercontent.com/87147191/205206216-d6b452cc-89af-4158-a4da-fdd9c826fa7a.png)
-            **_________________________________________________________________________________**
+
+
 ![Screenshot (189)](https://user-images.githubusercontent.com/87147191/205206218-23ea9c20-e817-4e36-ba4a-dfe6288baeff.png)
-            **_________________________________________________________________________________**
+
 ![Screenshot (199)](https://user-images.githubusercontent.com/87147191/205206206-baa28a89-8749-4849-a39c-041efbb74c04.png)
-            **_________________________________________________________________________________**
+
 ![Screenshot (200)](https://user-images.githubusercontent.com/87147191/205206207-bbd53084-1964-4b22-a7ca-d271b008062b.png)
-            **_________________________________________________________________________________**
 ![Screenshot (193)](https://user-images.githubusercontent.com/87147191/205207374-2e34387f-9963-41a9-9b6f-ce76b5ebb0b7.png)
-            **_________________________________________________________________________________**
 ![Screenshot (194)](https://user-images.githubusercontent.com/87147191/205206221-6f7dca9e-3312-4fdf-99a2-17a7ab54f32b.png)
-            **_________________________________________________________________________________**
 *Cheaper vehicle selection (Cybertruck)*
 ![Screenshot (196)](https://user-images.githubusercontent.com/87147191/205206222-aab474cf-9868-48ba-9e46-23580dc34797.png)
-            **_________________________________________________________________________________**
 ![Screenshot (203)](https://user-images.githubusercontent.com/87147191/205206208-850d8ce1-7043-44cb-8232-779da5903aa5.png)
-            **_________________________________________________________________________________**
 ![Screenshot (205)](https://user-images.githubusercontent.com/87147191/205206209-3a41fe23-6238-4fa2-a664-fc4f424f0b61.png)
-            **_________________________________________________________________________________**
 ![Screenshot (206)](https://user-images.githubusercontent.com/87147191/205206210-bfa5c051-d14a-4ba1-a00f-bae6d86f8271.png)
-            **_________________________________________________________________________________**
 ![Screenshot (207)](https://user-images.githubusercontent.com/87147191/205206214-4293dc2a-484e-4900-bf1d-9c6b94a695f4.png)
 
