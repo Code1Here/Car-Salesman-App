@@ -36,11 +36,6 @@ Upon loan generation, take note of ***Total cost of inquired product*** highligh
 ![Screenshot (199)](https://user-images.githubusercontent.com/87147191/205206206-baa28a89-8749-4849-a39c-041efbb74c04.png)
 
 
-
-![Screenshot (200)](https://user-images.githubusercontent.com/87147191/205206207-bbd53084-1964-4b22-a7ca-d271b008062b.png)
-
-
-
 ![Screenshot (193)](https://user-images.githubusercontent.com/87147191/205207374-2e34387f-9963-41a9-9b6f-ce76b5ebb0b7.png)
 
 
