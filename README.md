@@ -26,7 +26,7 @@ Database built with MySQL using JDBC connector.
 ![SQL_visual](https://user-images.githubusercontent.com/87147191/205205487-801ee871-153e-41e7-99bc-b21cca1e5e51.png)
 
 ## Screenshots
-Upon loan approval, take note of the text ***Total cost of inquired product*** highlighted in *red*, the ***Down Payment*** & the ***nterest Rate***
+Upon loan approval, take note of the text ***Total cost of inquired product*** highlighted in *red*, the ***Down Payment*** & the ***Interest Rate***
 
 ![Screenshot (189)](https://user-images.githubusercontent.com/87147191/205206218-23ea9c20-e817-4e36-ba4a-dfe6288baeff.png)
 ![Screenshot (199)](https://user-images.githubusercontent.com/87147191/205206206-baa28a89-8749-4849-a39c-041efbb74c04.png)
