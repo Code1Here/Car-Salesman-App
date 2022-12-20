@@ -26,27 +26,11 @@ Database built with MySQL using JDBC connector.
 ![SQL_visual](https://user-images.githubusercontent.com/87147191/205205487-801ee871-153e-41e7-99bc-b21cca1e5e51.png)
 
 ## Screenshots
-Upon loan generation, take note of ***Total cost of inquired product*** highlighted in red
-
+Upon loan generation, take note of ***Total cost of inquired product*** highlighted in *red*
 
 ![Screenshot (189)](https://user-images.githubusercontent.com/87147191/205206218-23ea9c20-e817-4e36-ba4a-dfe6288baeff.png)
-
-
-
 ![Screenshot (199)](https://user-images.githubusercontent.com/87147191/205206206-baa28a89-8749-4849-a39c-041efbb74c04.png)
-
-
 ![Screenshot (193)](https://user-images.githubusercontent.com/87147191/205207374-2e34387f-9963-41a9-9b6f-ce76b5ebb0b7.png)
-
-
-
 ![Screenshot (194)](https://user-images.githubusercontent.com/87147191/205206221-6f7dca9e-3312-4fdf-99a2-17a7ab54f32b.png)
-
-
-
-
 ![Screenshot (196)](https://user-images.githubusercontent.com/87147191/205206222-aab474cf-9868-48ba-9e46-23580dc34797.png)
-
-
-
 ![Screenshot (203)](https://user-images.githubusercontent.com/87147191/205206208-850d8ce1-7043-44cb-8232-779da5903aa5.png)
